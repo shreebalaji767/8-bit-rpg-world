@@ -22,7 +22,8 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 - An eighth and final playable kingdom, Celestia, with five celestial areas: Starfall Citadel, Astral Gardens, Moonlit Observatory, Voidglass Sanctum and Zenith Throne.
 - Area-specific terrain palettes, enemy populations, exploration NPCs and boundary-based routes.
 - The Forgotten Root Dungeon, a Runic Switch puzzle gate and its two-phase Rootbound Guardian boss encounter.
-- Power Strike special attack (K / mobile skill button), mana cost and animated slash feedback.
+- Six class-specific mana skills on K / the mobile skill button: Warrior Power Strike, Mage Arcane Bolt, Archer Piercing Shot, Rogue Backstab, Ranger Hunter Volley and Paladin Holy Vigor. Skills have different range, damage and support effects.
+- Legendary endgame crafting: Starforged Blade (+12 attack) and Eightfold Aegis (+10 defence), requiring materials gathered across multiple kingdoms.
 - Equipment slots, equipable weapons and armor, plus field crafting recipes for potions and gear, including the Whisperwood Bow and Copperguard Mail.
 - Copper Ore drops in the mine and dungeon, used by the crafting system.
 - Keyboard and touch movement, real-time directional melee attacks.
@@ -71,7 +72,7 @@ The next development phases are expansions to the completed world, rather than a
 
 1. Add more optional side quests, NPC stories and explorable settlements across existing kingdoms.
 2. Expand dungeons with additional puzzles, secret rooms, enemy waves and multi-phase boss encounters.
-3. Add equipment tiers, crafting recipes, loot variety and better-balanced progression.
+3. Continue balancing class skills, equipment tiers, crafting recipes and loot variety.
 4. Add endgame challenges, replayable boss encounters, achievements and personal records.
 5. Expand automated regression coverage and perform hands-on browser testing across desktop and mobile devices.
 
