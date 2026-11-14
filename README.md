@@ -28,6 +28,8 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 - Keyboard and touch movement, real-time directional melee attacks.
 - Twenty-six enemy types across all eight playable kingdoms, including region-specific beasts, undead, elementals, guardians and the Celestia Star Wisp, Astral Drake and Void Seraph. Enemies use scripted pursuit and contact-damage behaviour.
 - XP, levels, HP/MP, gold, loot and consumables.
+- A persistent in-game day/night clock with dawn, daylight, dusk and night lighting; the time and day are stored in existing local saves, with safe defaults for older saves.
+- Night encounters are more dangerous: enemies detect the player from farther away and deal a small additional amount of damage. Resting advances to dawn and restores HP/MP.
 - Village NPC dialogue, a merchant, a main quest and a reward.
 - Two repeat-safe Greenvale side quests: gather 4 Green Herbs for the Lost Herbalist and deliver 3 Copper Ore to the Retired Miner, each with one-time rewards.
 - Solaria chapter quest: meet Captain Samira, recover 3 Sunstone Shards for the Oasis Keeper, activate the solar seal and defeat the 210-HP Sunken Sand Wyrm.
