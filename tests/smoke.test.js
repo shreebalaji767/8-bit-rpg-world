@@ -192,3 +192,25 @@ test("Frostholm unlock and save compatibility survive loading older Solaria save
   assert.match(game, /d\.region>2/);
   assert.match(game, /d\.region===2&&!\["hamlet","pass","glacier","cavern","citadel"\]\.includes\(d\.area\)/);
 });
+
+test("Aetheria adds five connected floating-island areas and a separate movement route", () => {
+  for (const name of ["Cloudrest Spire","Whispering Cloudway","Windward Isles","The Shattered Aeries","Elderlight Shrine"]) assert.ok(game.includes('name:"'+name+'"'));
+  assert.match(game,/function setupAetheriaArea\\(spawn\\)/);
+  assert.match(game,/function moveAetheria\\(dx,dy\\)/);
+  assert.match(game,/if\\(state\\.region===3\\)\\{moveAetheria\\(dx,dy\\);return\\}/);
+});
+test("Aetheria quest requires three shards and the Sky Sigil before its boss chamber", () => {
+  assert.match(game,/name:"Cloud Sprite"/);
+  assert.match(game,/name:"Storm Harpy"/);
+  assert.match(game,/name:"Void Sentinel"/);
+  assert.match(game,/state\\.inventory\\.aetherShard-=3/);
+  assert.match(game,/state\\.quests\\.aetherGateOpen=true/);
+  assert.match(game,/name:"Astral Warden"/);
+  assert.match(game,/state\\.quests\\.aetheriaBoss=true/);
+});
+test("Aetheria progression unlocks the next kingdom and persists in local saves", () => {
+  assert.match(game,/state\\.quests\\.aetheriaUnlocked=true;REGIONS\\[4\\]\\.unlocked=true/);
+  assert.match(game,/d\\.region>3/);
+  assert.match(game,/d\\.region===3&&!\\["spire","cloudway","windward","lower","shrine"\\]\\.includes\\(d\\.area\\)/);
+  assert.match(game,/if\\(state\\.quests\\.frostholmBoss\\)state\\.quests\\.aetheriaUnlocked=true/);
+});
