@@ -13,6 +13,7 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 - Character creation with six starting classes.
 - Top-down pixel-art Greenvale map with camera tracking.
 - Five connected Greenvale areas: Meadowbrook Village, Eastern Meadowlands, Whispering Woods, Old Copper Mine and the Forgotten Root Dungeon.
+- A second playable kingdom, Solaria, with five distinct areas: Sunscar Outpost, Singing Dunes, Glasswater Oasis, Buried Sun Ruins and the Sunken Sun Temple.
 - Area-specific terrain palettes, enemy populations, exploration NPCs and boundary-based routes.
 - The Forgotten Root Dungeon, a Runic Switch puzzle gate and its two-phase Rootbound Guardian boss encounter.
 - Power Strike special attack (K / mobile skill button), mana cost and animated slash feedback.
@@ -23,6 +24,8 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 - XP, levels, HP/MP, gold, loot and consumables.
 - Village NPC dialogue, a merchant, a main quest and a reward.
 - Two repeat-safe Greenvale side quests: gather 4 Green Herbs for the Lost Herbalist and deliver 3 Copper Ore to the Retired Miner, each with one-time rewards.
+- Solaria chapter quest: meet Captain Samira, recover 3 Sunstone Shards for the Oasis Keeper, activate the solar seal and defeat the 210-HP Sunken Sand Wyrm.
+- Solaria unlocks after the Rootbound Guardian is defeated; its chapter progress and unlocked state are stored in the existing local save format.
 - Inventory, character sheet, kingdom overview and local save.
 - Three independent local save slots with validated JSON export/import backups; saves never leave the device unless the player explicitly exports a file.
 - Service-worker app shell for offline use after the first online visit.
@@ -46,9 +49,9 @@ Game progress is stored in this browser localStorage. It does not sync between d
 
 ## Roadmap
 
-1. Expand Greenvale quest chains, enemy families, dungeon puzzles and boss phases.
+1. Expand the Solaria chapter with more quests, enemies, dungeon puzzles and boss phases.
 2. Add additional equipment tiers, crafting stations and balanced loot tables.
-3. Unlock the seven additional kingdoms with distinct tile sets and mechanics.
+3. Build the remaining six locked kingdoms with distinct tile sets and mechanics.
 4. Add expanded save slots, export/import backups and automated browser regression tests.
 
 The eight-kingdom world is planned; not every region or feature is implemented yet.
