@@ -220,7 +220,7 @@ test("Infernia adds five volcanic areas and its own connected movement routes", 
   assert.ok(game.includes("function setupInferniaArea(spawn)"));
   assert.ok(game.includes("function moveInfernia(dx,dy)"));
   assert.ok(game.includes("if(state.region===4){moveInfernia(dx,dy);return}"));
-  assert.ok(game.includes('state.area=i===1?"outpost":i===2?"hamlet":i===3?"spire":i===4?"cinderwatch":i===5?"port":i===6?"gloam":"village";'));
+  assert.ok(game.includes('state.area=i===1?"outpost":i===2?"hamlet":i===3?"spire":i===4?"cinderwatch":i===5?"port":i===6?"gloam":i===7?"starfall":"village";'));
 });
 test("Infernia quest uses Ember Hearts, a sealed keep and the Infernal Regent", () => {
   for (const name of ["Cinder Imp","Magma Hound","Basalt Brute","Infernal Regent"]) assert.ok(game.includes('name:"'+name+'"'));
@@ -231,7 +231,7 @@ test("Infernia quest uses Ember Hearts, a sealed keep and the Infernal Regent", 
 });
 test("Infernia unlocks after Aetheria and its new save area is validated", () => {
   assert.ok(game.includes("state.quests.aetheriaBoss=true;state.quests.inferniaUnlocked=true;REGIONS[4].unlocked=true"));
-  assert.ok(game.includes("d.region>6"));
+  assert.ok(game.includes("d.region>7"));
   assert.ok(game.includes('d.region===4&&!["cinderwatch","emberwild","caldera","tunnels","keep"].includes(d.area)'));
   assert.ok(game.includes("if(state.quests.aetheriaBoss)state.quests.inferniaUnlocked=true"));
 });
@@ -241,7 +241,7 @@ test("Thalassia adds five island and underwater areas with connected routes", ()
   assert.ok(game.includes("function setupThalassiaArea(spawn)"));
   assert.ok(game.includes("function moveThalassia(dx,dy)"));
   assert.ok(game.includes("if(state.region===5){moveThalassia(dx,dy);return}"));
-  assert.ok(game.includes('state.area=i===1?"outpost":i===2?"hamlet":i===3?"spire":i===4?"cinderwatch":i===5?"port":i===6?"gloam":"village";'));
+  assert.ok(game.includes('state.area=i===1?"outpost":i===2?"hamlet":i===3?"spire":i===4?"cinderwatch":i===5?"port":i===6?"gloam":i===7?"starfall":"village";'));
   assert.ok(game.includes('clear(8,6,40,28);h(0,8,16);v(24,0,33)'));
 });
 test("Thalassia quest uses Tide Pearls, palace seal and the Leviathan", () => {
@@ -253,7 +253,7 @@ test("Thalassia quest uses Tide Pearls, palace seal and the Leviathan", () => {
 });
 test("Thalassia unlocks after Infernia and save migration validates its new areas", () => {
   assert.ok(game.includes("state.quests.inferniaBoss=true;state.quests.thalassiaUnlocked=true;REGIONS[5].unlocked=true"));
-  assert.ok(game.includes("d.region>6"));
+  assert.ok(game.includes("d.region>7"));
   assert.ok(game.includes('d.region===5&&!["port","coralway","reef","wreck","palace"].includes(d.area)'));
   assert.ok(game.includes("if(state.quests.inferniaBoss)state.quests.thalassiaUnlocked=true"));
 });
@@ -263,7 +263,7 @@ test("Shadowmere adds five connected cursed areas and its own region movement", 
   assert.ok(game.includes("function setupShadowmereArea(spawn)"));
   assert.ok(game.includes("function moveShadowmere(dx,dy)"));
   assert.ok(game.includes("if(state.region===6){moveShadowmere(dx,dy);return}"));
-  assert.ok(game.includes('state.area=i===1?"outpost":i===2?"hamlet":i===3?"spire":i===4?"cinderwatch":i===5?"port":i===6?"gloam":"village";'));
+  assert.ok(game.includes('state.area=i===1?"outpost":i===2?"hamlet":i===3?"spire":i===4?"cinderwatch":i===5?"port":i===6?"gloam":i===7?"starfall":"village";'));
   assert.ok(game.includes('clear(8,6,40,28);h(0,8,16);v(24,0,33)'));
 });
 test("Shadowmere quest requires Gloom Sigils and opens the Hollow King boss gate", () => {
@@ -275,7 +275,29 @@ test("Shadowmere quest requires Gloom Sigils and opens the Hollow King boss gate
 });
 test("Shadowmere unlocks after Thalassia and its save migration validates all new areas", () => {
   assert.ok(game.includes("state.quests.thalassiaBoss=true;state.quests.shadowmereUnlocked=true;REGIONS[6].unlocked=true"));
-  assert.ok(game.includes("d.region>6"));
+  assert.ok(game.includes("d.region>7"));
   assert.ok(game.includes('d.region===6&&!["gloam","blackwood","moor","crypt","citadel"].includes(d.area)'));
   assert.ok(game.includes("if(state.quests.thalassiaBoss)state.quests.shadowmereUnlocked=true"));
+});
+
+test("Celestia completes the eight-kingdom world with five distinct areas and movement", () => {
+  for (const name of ["Starfall Citadel","Astral Gardens","Moonlit Observatory","Voidglass Sanctum","Zenith Throne"]) assert.ok(game.includes('name:"'+name+'"'));
+  assert.ok(game.includes("function setupCelestiaArea(spawn)"));
+  assert.ok(game.includes("function moveCelestia(dx,dy)"));
+  assert.ok(game.includes("if(state.region===7){moveCelestia(dx,dy);return}"));
+  assert.ok(game.includes('state.area=i===1?"outpost":i===2?"hamlet":i===3?"spire":i===4?"cinderwatch":i===5?"port":i===6?"gloam":i===7?"starfall":"village";'));
+  assert.ok(game.includes('clear(8,6,40,28);h(0,8,16);v(24,0,33)'));
+});
+test("Celestia Starheart quest requires three Star Sigils and opens the Warden gate", () => {
+  for (const name of ["Star Wisp","Astral Drake","Void Seraph","The Celestial Warden"]) assert.ok(game.includes('name:"'+name+'"'));
+  assert.ok(game.includes("state.inventory.starSigil-=3"));
+  assert.ok(game.includes("state.quests.celestiaGateOpen=true"));
+  assert.ok(game.includes("hp:520,maxHp:520,atk:30"));
+  assert.ok(game.includes("state.quests.celestiaBoss=true"));
+});
+test("Celestia unlocks after Shadowmere and final kingdom saves migrate correctly", () => {
+  assert.ok(game.includes("state.quests.shadowmereBoss=true;state.quests.celestiaUnlocked=true;REGIONS[7].unlocked=true"));
+  assert.ok(game.includes("d.region>7"));
+  assert.ok(game.includes('d.region===7&&!["starfall","gardens","observatory","sanctum","zenith"].includes(d.area)'));
+  assert.ok(game.includes("if(state.quests.shadowmereBoss)state.quests.celestiaUnlocked=true"));
 });
