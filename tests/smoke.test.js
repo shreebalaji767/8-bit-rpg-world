@@ -257,3 +257,25 @@ test("Thalassia unlocks after Infernia and save migration validates its new area
   assert.ok(game.includes('d.region===5&&!["port","coralway","reef","wreck","palace"].includes(d.area)'));
   assert.ok(game.includes("if(state.quests.inferniaBoss)state.quests.thalassiaUnlocked=true"));
 });
+
+test("Shadowmere adds five connected cursed areas and its own region movement", () => {
+  for (const name of ["Gloam Village","Blackbriar Wood","Wraithfen Moor","Hollowmoon Crypt","Nightveil Citadel"]) assert.ok(game.includes('name:"'+name+'"'));
+  assert.ok(game.includes("function setupShadowmereArea(spawn)"));
+  assert.ok(game.includes("function moveShadowmere(dx,dy)"));
+  assert.ok(game.includes("if(state.region===6){moveShadowmere(dx,dy);return}"));
+  assert.ok(game.includes('state.area=i===1?"outpost":i===2?"hamlet":i===3?"spire":i===4?"cinderwatch":i===5?"port":i===6?"gloam":"village";'));
+  assert.ok(game.includes('clear(8,6,40,28);h(0,8,16);v(24,0,33)'));
+});
+test("Shadowmere quest requires Gloom Sigils and opens the Hollow King boss gate", () => {
+  for (const name of ["Gloom Hound","Wisp Revenant","Crypt Knight","The Hollow King"]) assert.ok(game.includes('name:"'+name+'"'));
+  assert.ok(game.includes("state.inventory.gloomSigil-=3"));
+  assert.ok(game.includes("state.quests.shadowmereGateOpen=true"));
+  assert.ok(game.includes("hp:430,maxHp:430,atk:27"));
+  assert.ok(game.includes("state.quests.shadowmereBoss=true"));
+});
+test("Shadowmere unlocks after Thalassia and its save migration validates all new areas", () => {
+  assert.ok(game.includes("state.quests.thalassiaBoss=true;state.quests.shadowmereUnlocked=true;REGIONS[6].unlocked=true"));
+  assert.ok(game.includes("d.region>6"));
+  assert.ok(game.includes('d.region===6&&!["gloam","blackwood","moor","crypt","citadel"].includes(d.area)'));
+  assert.ok(game.includes("if(state.quests.thalassiaBoss)state.quests.shadowmereUnlocked=true"));
+});
