@@ -235,3 +235,25 @@ test("Infernia unlocks after Aetheria and its new save area is validated", () =>
   assert.ok(game.includes('d.region===4&&!["cinderwatch","emberwild","caldera","tunnels","keep"].includes(d.area)'));
   assert.ok(game.includes("if(state.quests.aetheriaBoss)state.quests.inferniaUnlocked=true"));
 });
+
+test("Thalassia adds five island and underwater areas with connected routes", () => {
+  for (const name of ["Tidecross Port","Coralway Atoll","Whispering Reef","The Drowned Galleon","Pearlheart Palace"]) assert.ok(game.includes('name:"'+name+'"'));
+  assert.ok(game.includes("function setupThalassiaArea(spawn)"));
+  assert.ok(game.includes("function moveThalassia(dx,dy)"));
+  assert.ok(game.includes("if(state.region===5){moveThalassia(dx,dy);return}"));
+  assert.ok(game.includes('state.area=i===1?"outpost":i===2?"hamlet":i===3?"spire":i===4?"cinderwatch":i===5?"port":"village";'));
+  assert.ok(game.includes('clear(8,6,40,28);h(0,8,16);v(24,0,33)'));
+});
+test("Thalassia quest uses Tide Pearls, palace seal and the Leviathan", () => {
+  for (const name of ["Reef Stalker","Abyssal Eel","Coral Guardian","Leviathan of the Deep"]) assert.ok(game.includes('name:"'+name+'"'));
+  assert.ok(game.includes("state.inventory.tidePearl-=3"));
+  assert.ok(game.includes("state.quests.thalassiaGateOpen=true"));
+  assert.ok(game.includes("hp:380,maxHp:380,atk:24"));
+  assert.ok(game.includes("state.quests.thalassiaBoss=true"));
+});
+test("Thalassia unlocks after Infernia and save migration validates its new areas", () => {
+  assert.ok(game.includes("state.quests.inferniaBoss=true;state.quests.thalassiaUnlocked=true;REGIONS[5].unlocked=true"));
+  assert.ok(game.includes("d.region>5"));
+  assert.ok(game.includes('d.region===5&&!["port","coralway","reef","wreck","palace"].includes(d.area)'));
+  assert.ok(game.includes("if(state.quests.inferniaBoss)state.quests.thalassiaUnlocked=true"));
+});
