@@ -24,7 +24,7 @@ test("Greenvale contains four connected exploration areas", () => {
 });
 
 test("combat only hits the enemy directly in front of the player", () => {
-  assert.match(game, /e\.x===p\.x\+dx&&e\.y===p\.y\+dy/);
+  assert.match(game, /e\.x===p\.x\+dx\*step&&e\.y===p\.y\+dy\*step/);
   assert.match(game, /function attack\(\)/);
 });
 
