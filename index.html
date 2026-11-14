@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#18251d">
+  <meta name="description" content="Explore kingdoms, battle monsters and forge your legend in a classic 8-bit open-world RPG.">
+  <title>8-Bit RPG World</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2318251d'/%3E%3Cpath fill='%23f5c95d' d='M8 5h16v5h4v12h-4v5H8v-5H4V10h4z'/%3E%3Cpath fill='%2318251d' d='M11 12h3v3h-3zm7 0h3v3h-3zM12 19h8v2h-8z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="8-Bit RPG World home"><span class="brand-mark">✦</span><span>8-BIT <b>RPG WORLD</b></span></a>
+      <div class="top-actions"><span class="save-indicator" id="saveStatus">● LOCAL SAVE</span><button class="icon-button" id="helpButton" aria-label="Controls and help">?</button><button class="icon-button" id="soundButton" aria-label="Toggle sound">♪</button></div>
+    </header>
+    <main class="game-layout">
+      <section class="world-panel" aria-label="Game world">
+        <div class="scene-heading"><div><span class="eyebrow" id="chapterLabel">PROLOGUE · GREENVALE</span><h1 id="locationLabel">Meadowbrook Village</h1></div><div class="day-pill" id="clockLabel">DAY 1 · MORNING</div></div>
+        <div class="canvas-wrap">
+          <canvas id="gameCanvas" width="768" height="480" aria-label="Top-down pixel art game. Use WASD or arrow keys to move."></canvas>
+          <div class="canvas-hint" id="canvasHint">WASD / ARROWS MOVE · SPACE ATTACK · E INTERACT</div>
+          <div class="toast" id="toast" role="status" aria-live="polite"></div>
+        </div>
+        <div class="touch-controls" aria-label="Touch controls">
+          <div class="dpad"><button data-move="up" aria-label="Move up">▲</button><div><button data-move="left" aria-label="Move left">◀</button><button data-move="down" aria-label="Move down">▼</button><button data-move="right" aria-label="Move right">▶</button></div></div>
+          <div class="touch-actions"><button id="touchAttack">ATTACK</button><button id="touchInteract">TALK</button></div>
+        </div>
+      </section>
+      <aside class="sidebar">
+        <section class="hero-card">
+          <div class="hero-top"><div class="avatar" id="heroAvatar">⚔</div><div class="hero-name"><strong id="heroName">Wanderer</strong><span id="heroClass">LV 1 · WARRIOR</span></div><span class="level-badge" id="levelBadge">01</span></div>
+          <div class="stat-line"><span>HP</span><div class="meter hp"><i id="hpBar"></i></div><b id="hpText">40 / 40</b></div>
+          <div class="stat-line"><span>MP</span><div class="meter mp"><i id="mpBar"></i></div><b id="mpText">12 / 12</b></div>
+          <div class="xp-line"><span>EXPERIENCE</span><div class="meter xp"><i id="xpBar"></i></div><b id="xpText">0 / 30</b></div>
+        </section>
+        <nav class="tabbar" aria-label="Game menu"><button class="tab active" data-tab="quests">QUESTS</button><button class="tab" data-tab="inventory">BAG</button><button class="tab" data-tab="character">HERO</button><button class="tab" data-tab="world">WORLD</button></nav>
+        <section class="info-panel" id="infoPanel" aria-live="polite"></section>
+        <section class="quick-actions"><button id="saveButton">SAVE GAME</button><button id="restButton">REST AT INN</button></section>
+      </aside>
+    </main>
+    <footer class="footer"><span>AN ADVENTURE ACROSS EIGHT KINGDOMS</span><span>NO ADS · OFFLINE READY · YOUR SAVE STAYS ON THIS DEVICE</span></footer>
+  </div>
+  <dialog id="modal"><div class="modal-head"><h2 id="modalTitle">Welcome, adventurer</h2><button id="closeModal" aria-label="Close">×</button></div><div id="modalContent"></div></dialog>
+  <script src="game.js"></script>
+</body>
+</html>
