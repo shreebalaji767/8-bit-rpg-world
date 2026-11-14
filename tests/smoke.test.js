@@ -231,7 +231,7 @@ test("Infernia quest uses Ember Hearts, a sealed keep and the Infernal Regent", 
 });
 test("Infernia unlocks after Aetheria and its new save area is validated", () => {
   assert.ok(game.includes("state.quests.aetheriaBoss=true;state.quests.inferniaUnlocked=true;REGIONS[4].unlocked=true"));
-  assert.ok(game.includes("d.region>5"));
+  assert.ok(game.includes("d.region>6"));
   assert.ok(game.includes('d.region===4&&!["cinderwatch","emberwild","caldera","tunnels","keep"].includes(d.area)'));
   assert.ok(game.includes("if(state.quests.aetheriaBoss)state.quests.inferniaUnlocked=true"));
 });
@@ -253,7 +253,7 @@ test("Thalassia quest uses Tide Pearls, palace seal and the Leviathan", () => {
 });
 test("Thalassia unlocks after Infernia and save migration validates its new areas", () => {
   assert.ok(game.includes("state.quests.inferniaBoss=true;state.quests.thalassiaUnlocked=true;REGIONS[5].unlocked=true"));
-  assert.ok(game.includes("d.region>5"));
+  assert.ok(game.includes("d.region>6"));
   assert.ok(game.includes('d.region===5&&!["port","coralway","reef","wreck","palace"].includes(d.area)'));
   assert.ok(game.includes("if(state.quests.inferniaBoss)state.quests.thalassiaUnlocked=true"));
 });
