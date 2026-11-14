@@ -12,7 +12,7 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 
 - Character creation with six starting classes.
 - Top-down pixel-art Greenvale map with camera tracking.
-- Four connected Greenvale areas: Meadowbrook Village, Eastern Meadowlands, Whispering Woods and Old Copper Mine.
+- Five connected Greenvale areas: Meadowbrook Village, Eastern Meadowlands, Whispering Woods, Old Copper Mine and the Forgotten Root Dungeon.
 - Area-specific terrain palettes, enemy populations, exploration NPCs and boundary-based routes.
 - The Forgotten Root Dungeon, a Runic Switch puzzle gate and its two-phase Rootbound Guardian boss encounter.
 - Power Strike special attack (K / mobile skill button), mana cost and animated slash feedback.
