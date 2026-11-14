@@ -14,12 +14,12 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 - Top-down pixel-art Greenvale map with camera tracking.
 - Four connected Greenvale areas: Meadowbrook Village, Eastern Meadowlands, Whispering Woods and Old Copper Mine.
 - Area-specific terrain palettes, enemy populations, exploration NPCs and boundary-based routes.
-- The Forgotten Root Dungeon and its Rootbound Guardian boss encounter.
+- The Forgotten Root Dungeon, a Runic Switch puzzle gate and its two-phase Rootbound Guardian boss encounter.
 - Power Strike special attack (K / mobile skill button), mana cost and animated slash feedback.
 - Equipment slots, equipable weapons and armor, plus field crafting recipes for potions and gear.
 - Copper Ore drops in the mine and dungeon, used by the crafting system.
 - Keyboard and touch movement, real-time directional melee attacks.
-- Three enemy types with simple pursuit and contact damage.
+- Five enemy types, including Thorn Wolves and Cave Beetles, with simple pursuit and contact damage.
 - XP, levels, HP/MP, gold, loot and consumables.
 - Village NPC dialogue, a merchant, a main quest and a reward.
 - Inventory, character sheet, kingdom overview and local save.
