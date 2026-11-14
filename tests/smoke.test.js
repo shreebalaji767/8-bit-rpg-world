@@ -43,3 +43,30 @@ test("mobile layout and offline cache remain present", () => {
   assert.match(html, /data-move="up"/);
   assert.match(worker, /cache\.addAll\(APP_SHELL\)/);
 });
+
+test("Greenvale dungeon has a persistent guardian boss and return route", () => {
+  assert.match(game, /dungeon:\{name:"Forgotten Root Dungeon"/);
+  assert.match(game, /name:"Rootbound Guardian"/);
+  assert.match(game, /state\.quests\.dungeonBoss=true/);
+  assert.match(game, /state\.area==="dungeon"&&dy<0/);
+});
+
+test("Power Strike consumes mana and has a separate cooldown", () => {
+  assert.match(game, /function specialAttack\(\)/);
+  assert.match(game, /p\.mp<5/);
+  assert.match(game, /damageEnemy\(target,p\.attack\*2\+6,true\)/);
+});
+
+test("crafting recipes consume materials and equipment updates stats", () => {
+  assert.match(game, /const RECIPES=/);
+  assert.match(game, /function craftItem\(id\)/);
+  assert.match(game, /function equipItem\(id\)/);
+  assert.match(game, /data-craft=/);
+  assert.match(game, /data-equip=/);
+});
+
+test("touch and keyboard controls expose the Power Strike", () => {
+  assert.match(html, /id="touchSkill"/);
+  assert.match(game, /e\.key==="k"\|\|e\.key==="K"/);
+  assert.match(html, /data-tab="craft"/);
+});
