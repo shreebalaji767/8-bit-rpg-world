@@ -324,3 +324,8 @@ test("world time persists without breaking existing version-2 saves", () => {
   assert.match(game, /d\.worldMinutes!==undefined/);
   assert.match(game, /state\.day=Number\.isInteger\(d\.day\)/);
 });
+
+
+test("six classes have distinct mana skills with role-specific reach and effects", () => { assert.match(game,/p\.class==="Mage"\?4:p\.class==="Archer"\?3:p\.class==="Ranger"\?3/); for(const skill of ["ARCANE BOLT","PIERCING SHOT","BACKSTAB","HUNTER VOLLEY","HOLY VIGOR","POWER STRIKE"]) assert.ok(game.includes(skill),"missing "+skill); assert.match(game,/p\.hp=Math\.min\(p\.maxHp,p\.hp\+18\)/); });
+
+test("legendary endgame equipment has cross-kingdom recipes and crafting controls", () => { assert.match(game,/starforgedBlade:\{name:"Starforged Blade"/); assert.match(game,/eightfoldAegis:\{name:"Eightfold Aegis"/); assert.match(game,/starforgedBlade:\{cost:\{starSigil:3,gloomSigil:2,emberHeart:2,tidePearl:2\}\}/); assert.match(game,/eightfoldAegis:\{cost:\{starSigil:2,frostCore:3,aetherShard:2,tidePearl:2\}\}/); assert.match(game,/data-craft="starforgedBlade"/); assert.match(game,/data-craft="eightfoldAegis"/); });
