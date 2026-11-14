@@ -12,6 +12,8 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 
 - Character creation with six starting classes.
 - Top-down pixel-art Greenvale map with camera tracking.
+- Four connected Greenvale areas: Meadowbrook Village, Eastern Meadowlands, Whispering Woods and Old Copper Mine.
+- Area-specific terrain palettes, enemy populations, exploration NPCs and boundary-based routes.
 - Keyboard and touch movement, real-time directional melee attacks.
 - Three enemy types with simple pursuit and contact damage.
 - XP, levels, HP/MP, gold, loot and consumables.
