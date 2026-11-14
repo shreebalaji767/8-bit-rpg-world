@@ -16,12 +16,12 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 - Area-specific terrain palettes, enemy populations, exploration NPCs and boundary-based routes.
 - The Forgotten Root Dungeon, a Runic Switch puzzle gate and its two-phase Rootbound Guardian boss encounter.
 - Power Strike special attack (K / mobile skill button), mana cost and animated slash feedback.
-- Equipment slots, equipable weapons and armor, plus field crafting recipes for potions and gear.
+- Equipment slots, equipable weapons and armor, plus field crafting recipes for potions and gear, including the Whisperwood Bow and Copperguard Mail.
 - Copper Ore drops in the mine and dungeon, used by the crafting system.
 - Keyboard and touch movement, real-time directional melee attacks.
 - Five enemy types, including Thorn Wolves and Cave Beetles, with simple pursuit and contact damage.
 - XP, levels, HP/MP, gold, loot and consumables.
-- Village NPC dialogue, a merchant, a main quest and a reward.
+- Village NPC dialogue, a merchant, a main quest and a reward.\n- Two repeat-safe Greenvale side quests: gather 4 Green Herbs for the Lost Herbalist and deliver 3 Copper Ore to the Retired Miner, each with one-time rewards.
 - Inventory, character sheet, kingdom overview and local save.\n- Three independent local save slots with validated JSON export/import backups; saves never leave the device unless the player explicitly exports a file.
 - Service-worker app shell for offline use after the first online visit.
 
