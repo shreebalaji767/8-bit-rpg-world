@@ -43,10 +43,9 @@ Game progress is stored in this browser localStorage. It does not sync between d
 
 ## Roadmap
 
-1. Expand Greenvale into connected forests, mines and dungeons.
-2. Add equipment, crafting, loot tables and balanced enemy families.
-3. Build quest chains, boss encounters and story consequences.
-4. Unlock the seven additional kingdoms with distinct tile sets and mechanics.
+1. Expand Greenvale quest chains, enemy families, dungeon puzzles and boss phases.
+2. Add additional equipment tiers, crafting stations and balanced loot tables.
+3. Unlock the seven additional kingdoms with distinct tile sets and mechanics.
 4. Add expanded save slots, export/import backups and automated browser regression tests.
 
 The eight-kingdom world is planned; not every region or feature is implemented yet.
