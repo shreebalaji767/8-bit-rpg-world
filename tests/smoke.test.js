@@ -97,3 +97,12 @@ test("Woods and mine rotations include Thorn Wolf and Cave Beetle enemy families
   assert.match(game, /name:"Cave Beetle"/);
   assert.match(game, /drop:"copper"\}\];/);
 });
+
+test("save manager supports three validated local slots and JSON backup transfer", () => {
+  assert.match(game, /eightBitRpgSaveV2_slot_/);
+  assert.match(game, /function validSaveData\\(d\\)/);
+  assert.match(game, /function openSaveManager\\(\\)/);
+  assert.match(game, /application\\/json/);
+  assert.match(game, /a\\.download="8-bit-rpg-slot-/);
+  assert.match(html, /id="manageSaveButton"/);
+});
