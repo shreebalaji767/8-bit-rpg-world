@@ -22,7 +22,7 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 - Five enemy types, including Thorn Wolves and Cave Beetles, with simple pursuit and contact damage.
 - XP, levels, HP/MP, gold, loot and consumables.
 - Village NPC dialogue, a merchant, a main quest and a reward.
-- Inventory, character sheet, kingdom overview and local save.
+- Inventory, character sheet, kingdom overview and local save.\n- Three independent local save slots with validated JSON export/import backups; saves never leave the device unless the player explicitly exports a file.
 - Service-worker app shell for offline use after the first online visit.
 
 ## Controls
@@ -39,7 +39,7 @@ No build step or dependencies are required. Open `index.html` through a local st
 
 ## Storage and privacy
 
-Game progress is stored in this browser localStorage. It does not sync between devices and clearing browser site data can erase it. Use Save Game before switching devices or clearing browser data.
+Game progress is stored in this browser localStorage. It does not sync between devices and clearing browser site data can erase it. Use Save Game before switching devices or clearing browser data. Open **SAVE SLOTS · BACKUP** to choose among three slots or export/import a JSON backup. Imported files are size-limited and validated before replacing the selected slot.
 
 ## Roadmap
 
