@@ -301,3 +301,26 @@ test("Celestia unlocks after Shadowmere and final kingdom saves migrate correctl
   assert.ok(game.includes('d.region===7&&!["starfall","gardens","observatory","sanctum","zenith"].includes(d.area)'));
   assert.ok(game.includes("if(state.quests.shadowmereBoss)state.quests.celestiaUnlocked=true"));
 });
+
+
+test("day and night cycle renders atmospheric lighting and updates the world clock", () => {
+  assert.match(game, /function getNightFactor\(\)/);
+  assert.match(game, /function updateWorldClock\(\)/);
+  assert.match(game, /rgba\(13,18,42,/);
+  assert.match(game, /state\.frame%120===0\)updateWorldClock\(\)/);
+  assert.match(game, /· DAWN|DAWN/);
+});
+
+test("night increases enemy awareness and danger while rest advances to dawn", () => {
+  assert.match(game, /getNightFactor\(\)>.55\?10:8/);
+  assert.match(game, /getNightFactor\(\)>.65\?2:0/);
+  assert.match(game, /state\.worldMinutes=360/);
+  assert.match(game, /You rest until dawn/);
+});
+
+test("world time persists without breaking existing version-2 saves", () => {
+  assert.match(game, /worldMinutes:state\.worldMinutes/);
+  assert.match(game, /state\.worldMinutes=Number\.isInteger\(d\.worldMinutes\).*:480/);
+  assert.match(game, /d\.worldMinutes!==undefined/);
+  assert.match(game, /state\.day=Number\.isInteger\(d\.day\)/);
+});
