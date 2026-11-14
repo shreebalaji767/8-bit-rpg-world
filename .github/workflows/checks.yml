@@ -15,4 +15,5 @@ jobs:
         with:
           node-version: 20
       - run: node --check game.js
+      - run: node --test tests/smoke.test.js
       - run: test -s index.html && test -s styles.css && test -s manifest.webmanifest && test -s sw.js
