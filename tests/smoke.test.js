@@ -126,3 +126,31 @@ test("new Greenvale equipment has craft recipes and UI entries", () => {
   assert.ok(game.includes('data-craft="forestBow"'));
   assert.ok(game.includes('data-craft="ironArmor"'));
 });
+
+test("Solaria is a distinct five-area desert kingdom with connected routes", () => {
+  for (const area of ["outpost", "dunes", "oasis", "ruins", "temple"]) {
+    assert.ok(game.includes('name:"' + ({outpost:"Sunscar Outpost",dunes:"Singing Dunes",oasis:"Glasswater Oasis",ruins:"Buried Sun Ruins",temple:"Sunken Sun Temple"}[area]) + '"'));
+  }
+  assert.match(game, /function setupSolariaArea\(spawn\)/);
+  assert.match(game, /function moveSolaria\(dx,dy\)/);
+  assert.match(game, /state\.region===1/);
+  assert.match(game, /name:"Dune Scorpion"/);
+  assert.match(game, /name:"Sunken Sand Wyrm"/);
+});
+
+test("Solaria chapter has a repeat-safe sunstone quest and puzzle-gated boss", () => {
+  assert.match(game, /kind==="solariaGuide"/);
+  assert.match(game, /kind==="oasisKeeper"/);
+  assert.match(game, /state\.quests\.sunstoneDone=true/);
+  assert.match(game, /state\.quests\.solariaSealOpen=true/);
+  assert.match(game, /state\.quests\.solariaBoss=true/);
+  assert.match(game, /state\.quests\.solariaUnlocked=true/);
+  assert.match(game, /sunstone:\{name:"Sunstone Shard"/);
+});
+
+test("Solaria unlock state persists in existing local save slots", () => {
+  assert.match(game, /solariaUnlocked:false/);
+  assert.match(game, /REGIONS\[1\]\.unlocked=!!state\.quests\.solariaUnlocked/);
+  assert.match(game, /state\.region=d\.region;state\.area=d\.area/);
+  assert.match(game, /state\.region=0;state\.area="village"/);
+});
