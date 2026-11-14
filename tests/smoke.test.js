@@ -189,7 +189,7 @@ test("Frostholm unlock and save compatibility survive loading older Solaria save
   assert.match(game, /frostholmUnlocked:false/);
   assert.match(game, /REGIONS\[2\]\.unlocked=!!state\.quests\.frostholmUnlocked/);
   assert.match(game, /if\(state\.quests\.solariaBoss\)state\.quests\.frostholmUnlocked=true/);
-  assert.match(game, /d\.region>3/);
+  assert.match(game, /d\.region>4/);
   assert.match(game, /d\.region===2&&!\["hamlet","pass","glacier","cavern","citadel"\]\.includes\(d\.area\)/);
 });
 
@@ -210,7 +210,31 @@ test("Aetheria quest requires three shards and the Sky Sigil before its boss cha
 });
 test("Aetheria progression unlocks after Frostholm and persists in local saves", () => {
   assert.match(game,/state\.quests\.frostholmBoss=true;state\.quests\.aetheriaUnlocked=true;REGIONS\[3\]\.unlocked=true/);
-  assert.match(game,/d\.region>3/);
+  assert.match(game,/d\.region>4/);
   assert.match(game,/d\.region===3&&!\["spire","cloudway","windward","lower","shrine"\]\.includes\(d\.area\)/);
   assert.match(game,/if\(state\.quests\.frostholmBoss\)state\.quests\.aetheriaUnlocked=true/);
+});
+
+test("Infernia adds five volcanic areas and its own connected movement routes", () => {
+  for (const name of ["Cinderwatch","Emberwild","Ashen Caldera","Magma Tunnels","Infernal Keep"]) assert.ok(game.includes('name:"'+name+'"'));
+  assert.match(game,/function setupInferniaArea\\(spawn\\)/);
+  assert.match(game,/function moveInfernia\\(dx,dy\\)/);
+  assert.match(game,/if\\(state\\.region===4\\)\\{moveInfernia\\(dx,dy\\);return\\}/);
+  assert.match(game,/state\\.area=i===1\\?"outpost":i===2\\?"hamlet":i===3\\?"spire":i===4\\?"cinderwatch":"village"/);
+});
+test("Infernia quest uses Ember Hearts, a sealed keep and the Infernal Regent", () => {
+  assert.match(game,/name:"Cinder Imp"/);
+  assert.match(game,/name:"Magma Hound"/);
+  assert.match(game,/name:"Basalt Brute"/);
+  assert.match(game,/state\\.inventory\\.emberHeart-=3/);
+  assert.match(game,/state\\.quests\\.inferniaGateOpen=true/);
+  assert.match(game,/name:"Infernal Regent"/);
+  assert.match(game,/hp:340,maxHp:340,atk:22/);
+  assert.match(game,/state\\.quests\\.inferniaBoss=true/);
+});
+test("Infernia unlocks after Aetheria and its new save area is validated", () => {
+  assert.match(game,/state\\.quests\\.aetheriaBoss=true;state\\.quests\\.inferniaUnlocked=true;REGIONS\\[4\\]\\.unlocked=true/);
+  assert.match(game,/d\\.region>4/);
+  assert.match(game,/d\\.region===4&&!\\["cinderwatch","emberwild","caldera","tunnels","keep"\\]\\.includes\\(d\\.area\\)/);
+  assert.match(game,/if\\(state\\.quests\\.aetheriaBoss\\)state\\.quests\\.inferniaUnlocked=true/);
 });
