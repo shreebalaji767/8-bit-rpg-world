@@ -34,7 +34,7 @@ test("quest rewards require accepting the village quest first", () => {
 
 test("save data preserves the current Greenvale area", () => {
   assert.match(game, /area:state\.area/);
-  assert.match(game, /state\.area=AREAS\[d\.area\]\?d\.area:"village"/);
+  assert.match(game, /state\.area=d\.area/);
   assert.match(game, /setupArea\(\{x:state\.player\.x,y:state\.player\.y\}\)/);
 });
 
@@ -189,7 +189,7 @@ test("Frostholm unlock and save compatibility survive loading older Solaria save
   assert.match(game, /frostholmUnlocked:false/);
   assert.match(game, /REGIONS\[2\]\.unlocked=!!state\.quests\.frostholmUnlocked/);
   assert.match(game, /if\(state\.quests\.solariaBoss\)state\.quests\.frostholmUnlocked=true/);
-  assert.match(game, /d\.region>2/);
+  assert.match(game, /d\.region>3/);
   assert.match(game, /d\.region===2&&!\["hamlet","pass","glacier","cavern","citadel"\]\.includes\(d\.area\)/);
 });
 
