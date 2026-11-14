@@ -21,8 +21,10 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 - Keyboard and touch movement, real-time directional melee attacks.
 - Five enemy types, including Thorn Wolves and Cave Beetles, with simple pursuit and contact damage.
 - XP, levels, HP/MP, gold, loot and consumables.
-- Village NPC dialogue, a merchant, a main quest and a reward.\n- Two repeat-safe Greenvale side quests: gather 4 Green Herbs for the Lost Herbalist and deliver 3 Copper Ore to the Retired Miner, each with one-time rewards.
-- Inventory, character sheet, kingdom overview and local save.\n- Three independent local save slots with validated JSON export/import backups; saves never leave the device unless the player explicitly exports a file.
+- Village NPC dialogue, a merchant, a main quest and a reward.
+- Two repeat-safe Greenvale side quests: gather 4 Green Herbs for the Lost Herbalist and deliver 3 Copper Ore to the Retired Miner, each with one-time rewards.
+- Inventory, character sheet, kingdom overview and local save.
+- Three independent local save slots with validated JSON export/import backups; saves never leave the device unless the player explicitly exports a file.
 - Service-worker app shell for offline use after the first online visit.
 
 ## Controls
@@ -30,7 +32,8 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 | Action | Keyboard | Touch |
 |---|---|---|
 | Move | WASD / Arrow keys | Direction pad |
-| Attack | Space / J | Attack |\n| Power Strike | K (5 MP) | Power |
+| Attack | Space / J | Attack |
+| Power Strike | K (5 MP) | Power |
 | Interact | E | Talk |
 
 ## Local development
