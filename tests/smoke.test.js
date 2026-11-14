@@ -87,9 +87,9 @@ test("Rootbound Guardian uses a readable wind-up and a stronger second phase", (
 
 test("Forgotten Root Dungeon requires its Runic Switch before the boss corridor opens", () => {
   assert.match(game, /name:"Runic Switch",kind:"switch"/);
-  assert.match(game, /if\(!state\.quests\.dungeonSealOpen\)for\(let x=21;x<=26;x\)state\.grid\[5\]\[x\]=2/);
+  assert.match(game, /if\(!state\.quests\.dungeonSealOpen\)for\\(let x=21;x<=26;x\\+\\+\\)state\.grid\[5\]\[x\]=2/);
   assert.match(game, /state\.quests\.dungeonSealOpen=true/);
-  assert.match(game, /for\(let x=21;x<=26;x\)state\.grid\[5\]\[x\]=0/);
+  assert.match(game, /for\\(let x=21;x<=26;x\\+\\+\\)state\.grid\[5\]\[x\]=0/);
 });
 
 test("Woods and mine rotations include Thorn Wolf and Cave Beetle enemy families", () => {
