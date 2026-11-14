@@ -45,5 +45,6 @@
   </div>
   <dialog id="modal"><div class="modal-head"><h2 id="modalTitle">Welcome, adventurer</h2><button id="closeModal" aria-label="Close">×</button></div><div id="modalContent"></div></dialog>
   <script src="game.js"></script>
+  <script>if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));</script>
 </body>
 </html>
