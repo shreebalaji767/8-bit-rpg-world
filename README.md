@@ -54,4 +54,4 @@ Game progress is stored in this browser localStorage. It does not sync between d
 3. Build the remaining six locked kingdoms with distinct tile sets and mechanics.
 4. Add expanded save slots, export/import backups and automated browser regression tests.
 
-The eight-kingdom world is planned; not every region or feature is implemented yet.
+Greenvale and Solaria are the first two playable kingdoms. The remaining six kingdoms and many larger-world features are still planned.
