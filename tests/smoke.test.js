@@ -79,7 +79,7 @@ test("enemy defeat or death cannot keep processing the old area's enemy list", (
 });
 
 test("Rootbound Guardian uses a readable wind-up and a stronger second phase", () => {
-  assert.match(game, /ROOTBOUND GUARDIAN: a crushing strike is coming/);
+  assert.match(game, /e\.name\.toUpperCase\(\)\+": a crushing strike is coming/);
   assert.match(game, /e\.hp<=e\.maxHp\/2\?18:12/);
   assert.match(game, /e\.telegraph\?"#f2a84b"/);
 });
@@ -95,7 +95,7 @@ test("Forgotten Root Dungeon requires its Runic Switch before the boss corridor 
 test("Woods and mine rotations include Thorn Wolf and Cave Beetle enemy families", () => {
   assert.match(game, /name:"Thorn Wolf"/);
   assert.match(game, /name:"Cave Beetle"/);
-  assert.match(game, /drop:"copper"\}\];/);
+  assert.match(game, /drop:"copper"\},\{name:"Dune Scorpion"/);
 });
 
 test("save manager supports three validated local slots and JSON backup transfer", () => {
@@ -153,4 +153,42 @@ test("Solaria unlock state persists in existing local save slots", () => {
   assert.match(game, /REGIONS\[1\]\.unlocked=!!state\.quests\.solariaUnlocked/);
   assert.match(game, /state\.region=d\.region;state\.area=d\.area/);
   assert.match(game, /state\.region=0;state\.area="village"/);
+});
+
+
+test("Solaria movement dispatches by kingdom without recursive movement", () => {
+  assert.match(game, /if\(state\.region===1\)\{moveSolaria\(dx,dy\);return\}/);
+  assert.match(game, /function moveSolaria\(dx,dy\)\{const p=state\.player;let nx=p\.x\+dx/);
+  assert.doesNotMatch(game, /function moveSolaria\(dx,dy\)\{const p=state\.player;if\(state\.region===1\)/);
+});
+
+test("Frostholm has five distinct connected snow areas and its own enemy family", () => {
+  for (const name of ["Snowfall Hamlet","Whisperfrost Pass","Blueglass Glacier","Hollow Ice Cavern","Frostbound Citadel"]) {
+    assert.ok(game.includes('name:"' + name + '"'), "missing Frostholm area " + name);
+  }
+  assert.match(game, /function setupFrostholmArea\(spawn\)/);
+  assert.match(game, /function moveFrostholm\(dx,dy\)/);
+  assert.match(game, /if\(state\.region===2\)\{moveFrostholm\(dx,dy\);return\}/);
+  assert.match(game, /name:"Frost Wolf"/);
+  assert.match(game, /name:"Ice Golem"/);
+  assert.match(game, /name:"Snow Wraith"/);
+});
+
+test("Frostholm quest is repeat-safe and the Colossus is gated by the Frost Seal", () => {
+  assert.match(game, /kind==="frostGuide"/);
+  assert.match(game, /kind==="glacierHermit"/);
+  assert.match(game, /state\.inventory\.frostCore-=3/);
+  assert.match(game, /state\.quests\.frostCoreDone=true/);
+  assert.match(game, /state\.quests\.frostGateOpen=true/);
+  assert.match(game, /name:"Frostbound Colossus"/);
+  assert.match(game, /state\.quests\.frostholmBoss=true/);
+  assert.match(game, /state\.quests\.frostholmUnlocked=true/);
+});
+
+test("Frostholm unlock and save compatibility survive loading older Solaria saves", () => {
+  assert.match(game, /frostholmUnlocked:false/);
+  assert.match(game, /REGIONS\[2\]\.unlocked=!!state\.quests\.frostholmUnlocked/);
+  assert.match(game, /if\(state\.quests\.solariaBoss\)state\.quests\.frostholmUnlocked=true/);
+  assert.match(game, /d\.region>2/);
+  assert.match(game, /d\.region===2&&!\["hamlet","pass","glacier","cavern","citadel"\]\.includes\(d\.area\)/);
 });
