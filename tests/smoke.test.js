@@ -189,7 +189,7 @@ test("Frostholm unlock and save compatibility survive loading older Solaria save
   assert.match(game, /frostholmUnlocked:false/);
   assert.match(game, /REGIONS\[2\]\.unlocked=!!state\.quests\.frostholmUnlocked/);
   assert.match(game, /if\(state\.quests\.solariaBoss\)state\.quests\.frostholmUnlocked=true/);
-  assert.match(game, /d\.region>5/);
+  assert.match(game, /d\.region>6/);
   assert.match(game, /d\.region===2&&!\["hamlet","pass","glacier","cavern","citadel"\]\.includes\(d\.area\)/);
 });
 
@@ -210,7 +210,7 @@ test("Aetheria quest requires three shards and the Sky Sigil before its boss cha
 });
 test("Aetheria progression unlocks after Frostholm and persists in local saves", () => {
   assert.match(game,/state\.quests\.frostholmBoss=true;state\.quests\.aetheriaUnlocked=true;REGIONS\[3\]\.unlocked=true/);
-  assert.match(game,/d\.region>5/);
+  assert.match(game,/d\.region>6/);
   assert.match(game,/d\.region===3&&!\["spire","cloudway","windward","lower","shrine"\]\.includes\(d\.area\)/);
   assert.match(game,/if\(state\.quests\.frostholmBoss\)state\.quests\.aetheriaUnlocked=true/);
 });
@@ -220,7 +220,7 @@ test("Infernia adds five volcanic areas and its own connected movement routes", 
   assert.ok(game.includes("function setupInferniaArea(spawn)"));
   assert.ok(game.includes("function moveInfernia(dx,dy)"));
   assert.ok(game.includes("if(state.region===4){moveInfernia(dx,dy);return}"));
-  assert.ok(game.includes('state.area=i===1?"outpost":i===2?"hamlet":i===3?"spire":i===4?"cinderwatch":i===5?"port":"village";'));
+  assert.ok(game.includes('state.area=i===1?"outpost":i===2?"hamlet":i===3?"spire":i===4?"cinderwatch":i===5?"port":i===6?"gloam":"village";'));
 });
 test("Infernia quest uses Ember Hearts, a sealed keep and the Infernal Regent", () => {
   for (const name of ["Cinder Imp","Magma Hound","Basalt Brute","Infernal Regent"]) assert.ok(game.includes('name:"'+name+'"'));
@@ -241,7 +241,7 @@ test("Thalassia adds five island and underwater areas with connected routes", ()
   assert.ok(game.includes("function setupThalassiaArea(spawn)"));
   assert.ok(game.includes("function moveThalassia(dx,dy)"));
   assert.ok(game.includes("if(state.region===5){moveThalassia(dx,dy);return}"));
-  assert.ok(game.includes('state.area=i===1?"outpost":i===2?"hamlet":i===3?"spire":i===4?"cinderwatch":i===5?"port":"village";'));
+  assert.ok(game.includes('state.area=i===1?"outpost":i===2?"hamlet":i===3?"spire":i===4?"cinderwatch":i===5?"port":i===6?"gloam":"village";'));
   assert.ok(game.includes('clear(8,6,40,28);h(0,8,16);v(24,0,33)'));
 });
 test("Thalassia quest uses Tide Pearls, palace seal and the Leviathan", () => {
