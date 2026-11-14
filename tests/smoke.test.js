@@ -107,3 +107,22 @@ test("save manager supports three validated local slots and JSON backup transfer
   assert.ok(game.includes("state.inventory={...d.inventory}"));
   assert.ok(html.includes('id="manageSaveButton"'));
 });
+
+test("Greenvale side quests have one-time herb and copper turn-ins", () => {
+  assert.ok(game.includes('kind==="herbalist"'));
+  assert.ok(game.includes('kind==="miner"'));
+  assert.ok(game.includes("state.quests.herbalistDone=true"));
+  assert.ok(game.includes("state.quests.minerDone=true"));
+  assert.ok(game.includes("state.inventory.herb-=4"));
+  assert.ok(game.includes("state.inventory.copper-=3"));
+  assert.ok(game.includes("herbalistDone:false,miner:false,minerDone:false"));
+});
+
+test("new Greenvale equipment has craft recipes and UI entries", () => {
+  assert.ok(game.includes('forestBow:{name:"Whisperwood Bow"'));
+  assert.ok(game.includes('ironArmor:{name:"Copperguard Mail"'));
+  assert.ok(game.includes("forestBow:{cost:{wood:2,herb:2,slime:1}}"));
+  assert.ok(game.includes("ironArmor:{cost:{copper:4,wood:4,slime:2}}"));
+  assert.ok(game.includes('data-craft="forestBow"'));
+  assert.ok(game.includes('data-craft="ironArmor"'));
+});
