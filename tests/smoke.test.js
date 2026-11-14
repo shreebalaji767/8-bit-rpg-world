@@ -70,3 +70,16 @@ test("touch and keyboard controls expose the Power Strike", () => {
   assert.match(game, /e\.key==="k"\|\|e\.key==="K"/);
   assert.match(html, /data-tab="craft"/);
 });
+
+
+test("enemy defeat or death cannot keep processing the old area's enemy list", () => {
+  assert.match(game, /for\(const e of state\.enemies\)/);
+  assert.match(game, /if\(respawned\)\{state\.keys=\{\};\}/);
+  assert.match(game, /respawned=true;updateUI\(\);break/);
+});
+
+test("Rootbound Guardian uses a readable wind-up and a stronger second phase", () => {
+  assert.match(game, /ROOTBOUND GUARDIAN: a crushing strike is coming/);
+  assert.match(game, /e\.hp<=e\.maxHp\/2\?18:12/);
+  assert.match(game, /e\.telegraph\?"#f2a84b"/);
+});
