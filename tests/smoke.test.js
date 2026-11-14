@@ -54,7 +54,7 @@ test("Greenvale dungeon has a persistent guardian boss and return route", () => 
 test("Power Strike consumes mana and has a separate cooldown", () => {
   assert.match(game, /function specialAttack\(\)/);
   assert.match(game, /p\.mp<5/);
-  assert.match(game, /p\.class==="Warrior"\?2:p\.class==="Mage"\?2\.35/);
+  assert.match(game, /p\.class==="Rogue"\?3:p\.class==="Mage"\?2\.35/);
   assert.match(game, /damageEnemy\(e,Math\.max\(1,Math\.floor\(p\.attack\*multiplier\+bonus-i\*2\)\),true\)/);
 });
 
