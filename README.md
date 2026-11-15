@@ -4,7 +4,7 @@ A free, browser-based top-down action RPG built with vanilla HTML, CSS and JavaS
 
 ## Play
 
-Every normal site load opens on the landing page; saved adventures are never started automatically. Browser refresh performs a normal page reload, and the landing page is shown again. Both the landing-page logo and in-game logo return to the landing page; leaving gameplay through the logo saves progress first. The site opens on a dedicated retro-modern title hub. Continue the most recently saved adventure, continue any of the three slots, or start a new game in a chosen slot. Replacing an occupied slot requires confirmation; the other slots remain untouched. Settings persist sound-mute and reduced-motion preferences separately from game progress. Controls and credits are available before starting. During play, use **PAUSE** (or Escape) to suspend the action, **RESUME** to continue, and **EXIT** to save and return to the title screen.
+Every normal site load opens on the landing page; saved adventures are never started automatically. Browser refresh performs a normal page reload, and the landing page is shown again. Both the landing-page logo and in-game logo return to the landing page; leaving gameplay through the logo does not save progress. The site opens on a dedicated retro-modern title hub. Continue the most recently saved adventure, continue any of the three slots, or start a new game in a chosen slot. Replacing an occupied slot requires confirmation; the other slots remain untouched. Settings persist sound-mute and reduced-motion preferences separately from game progress. Controls and credits are available before starting. During play, use **PAUSE** (or Escape) to suspend the action, **RESUME** to continue, and **EXIT** to return to the title screen without saving.
 
 After GitHub Pages is enabled for the `main` branch (root), visit:
 
@@ -57,7 +57,7 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 - Companion trust, side-story progress and party selection are saved locally in the existing version-2 format; older saves migrate with empty companion records.
 - Six playable character classes: Warrior, Mage, Archer, Rogue, Paladin and Ranger.
 - Story progression across eight kingdoms, with chapter quests, collectible materials, seal puzzles and a culminating final boss encounter in Celestia.
-- Three independent local save slots with validated JSON export/import backups; saves never leave the device unless the player explicitly exports a file.
+- Three independent local save slots with manual saving and validated JSON export/import backups; saves never leave the device unless the player explicitly exports a file.
 - Service-worker app shell for offline use after the first online visit.
 
 ## Controls
@@ -75,7 +75,7 @@ No build step or dependencies are required. Open `index.html` through a local st
 
 ## Storage and privacy
 
-Game progress is stored in this browser localStorage. It does not sync between devices and clearing browser site data can erase it. Use Save Game before switching devices or clearing browser data. Open **SAVE SLOTS · BACKUP** to choose among three slots or export/import a JSON backup. The title screen also shows all three slots and lets you continue or start a separate adventure in a selected slot. Imported files are size-limited and validated before replacing the selected slot.
+Game progress is stored in this browser localStorage. It does not sync between devices and clearing browser site data can erase it. Use the in-game **SAVE GAME** button whenever you want to save. The game never saves automatically: exiting, clicking the logo, refreshing or closing the tab does not write progress. Open **SAVE SLOTS · BACKUP** to choose among three slots or export/import a JSON backup. The title screen also shows all three slots and lets you continue or start a separate adventure in a selected slot. Imported files are size-limited and validated before replacing the selected slot.
 
 ## World completion and next development
 
