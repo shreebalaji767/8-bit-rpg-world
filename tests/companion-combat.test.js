@@ -85,7 +85,7 @@ test("companion save validation bounds progression fields", () => {
 test("all-eight companion milestones award Codex achievements", () => {
   assert.match(game, /id:"companion_recruit_all"/);
   assert.match(game, /id:"companion_stories"/);
-  assert.match(game, /recruited:true/);
+  assert.match(game, /r\.recruited=true/);
   assert.match(game, /r\.level>=3&&state\.region===c\.region&&!r\.homecomingSeen/);
   assert.match(game, /Trust \+1 · \+50 gold/);
 });
