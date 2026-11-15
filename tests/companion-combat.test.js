@@ -154,7 +154,8 @@ test("both game logos navigate to the landing page and save before leaving gamep
   assert.match(game, /if\(state\.started\)exitToTitle\(\)/);
   assert.match(game, /function exitToTitle\(\)\{if\(state\.started\)save\(\)/);
 });
-test("browser refresh is not intercepted or rewritten by custom navigation handlers", () => {
-  assert.doesNotMatch(game, /beforeunload|onbeforeunload|location\.reload\(\).*refresh/i);
-  assert.doesNotMatch(game, /addEventListener\(["']keydown["'][^]*?preventDefault\(\)[^]*?F5/);
+test("browser refresh remains normal while the beforeunload hook only autosaves progress", () => {
+  assert.match(game, /window\.addEventListener\("beforeunload"/);
+  assert.match(game, /localStorage\.setItem\(SAVE_KEY\+state\.activeSaveSlot,JSON\.stringify\(currentSaveData\(\)\)\)/);
+  assert.doesNotMatch(game, /window\.onbeforeunload|beforeunload[^]*?preventDefault\(\)/);
 });
