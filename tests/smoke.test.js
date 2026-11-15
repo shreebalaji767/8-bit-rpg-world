@@ -437,6 +437,8 @@ test("Every expansion dungeon has a return sigil, unique puzzle text and a regio
   assert.match(game, /kind:"expDungeonExit"/);
   assert.match(game, /kind:"expDungeonRune"/);
   assert.match(game, /EXP_PUZZLE_ORDER/);
+  assert.match(game, /EXP_RUNE_NAMES/);
+  for (const device of ["Sun Mirror","Frost Rune","Sky Anchor","Ember Valve","Tide Valve","Veil Lantern","Star Mark"]) assert.ok(game.includes(device));
   assert.match(game, /state\.quests\[progressKey\]=progress\+1/);
   assert.match(game, /Wrong rune order\. The sequence resets/);
   assert.match(game, /function applyExpansionHazard/);
