@@ -4,6 +4,8 @@ A free, browser-based top-down action RPG built with vanilla HTML, CSS and JavaS
 
 ## Play
 
+The site opens on a dedicated retro-modern title screen. Select **PLAY GAME** to continue the local save or create a new hero. During play, use **PAUSE** (or Escape) to suspend the action, **RESUME** to continue, and **EXIT** to save and return to the title screen. The title screen, pause overlay and game controls are responsive on desktop and mobile.
+
 After GitHub Pages is enabled for the `main` branch (root), visit:
 
 https://shreebalaji767.github.io/8-bit-rpg-world/
