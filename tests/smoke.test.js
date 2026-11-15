@@ -80,7 +80,7 @@ test("enemy defeat or death cannot keep processing the old area's enemy list", (
 });
 
 test("Rootbound Guardian uses a readable wind-up and a stronger second phase", () => {
-  assert.match(game, /e\.name\.toUpperCase\(\)\+": a crushing strike is coming/);
+  assert.match(game, /e\.name\.toUpperCase\(\)\+\(e\.phase===2\?/);
   assert.match(game, /e\.phase===2\?e\.atk\+6:e\.atk/);
   assert.match(game, /e\.telegraph\?"#f2a84b"/);
 });
