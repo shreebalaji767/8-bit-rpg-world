@@ -114,3 +114,31 @@ test("retro-modern theme and mobile layout are present", () => {
   assert.match(css, /pixel-showcase/);
   assert.match(css, /@media\(max-width:680px\)/);
 });
+
+test("title menu exposes save slots, settings, controls and credits", () => {
+  assert.match(html, /id="titleSlots"/);
+  for (const id of ["newGameButton","settingsButton","controlsButton","creditsButton"]) assert.match(html, new RegExp('id="'+id+'"'));
+  assert.match(game, /function renderTitleSlots\(\)/);
+  assert.match(game, /function continueInSlot\(slot\)/);
+  assert.match(game, /function continueLatest\(\)/);
+});
+test("new-game slot replacement requires confirmation and preserves other slots", () => {
+  assert.match(game, /function newGameInSlot\(slot\)/);
+  assert.match(game, /window\.confirm\("Replace the existing save in Slot "/);
+  assert.match(game, /localStorage\.removeItem\(SAVE_KEY\+slot\)/);
+  assert.match(game, /eightBitRpgActiveSlot/);
+  assert.match(game, /eightBitRpgStartNew/);
+  assert.match(game, /const SAVE_KEY="eightBitRpgSaveV2_slot_"/);
+  assert.match(game, /version:2/);
+});
+test("title settings persist sound and reduced-motion preferences separately from game saves", () => {
+  assert.match(game, /function openTitleSettings\(\)/);
+  assert.match(game, /eightBitRpgSettingsV1/);
+  assert.match(game, /document\.body\.classList\.toggle\("reduce-motion"/);
+  assert.match(css, /body\.reduce-motion/);
+});
+test("title slot cards only enable continue for validated local saves", () => {
+  assert.match(game, /function titleSaveData\(slot\)/);
+  assert.match(game, /return validSaveData\(data\)\?data:null/);
+  assert.match(game, /loadButton\.disabled=!data/);
+});
