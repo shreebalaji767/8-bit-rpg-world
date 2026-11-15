@@ -23,8 +23,8 @@ test("companion support is automatic and rate-limited", () => {
 });
 
 test("healing and mana support cannot exceed player maximums", () => {
-  assert.match(game, /Math\.min\(p\.maxHp-p\.hp,3\+Math\.floor\(p\.level\/10\)\)/);
-  assert.match(game, /Math\.min\(p\.maxMp-p\.mp,2\)/);
+  assert.match(game, /Math\.min\(p\.maxHp-p\.hp,3\+Math\.floor\(p\.level\/10\)\+rank\*2/);
+  assert.match(game, /Math\.min\(p\.maxMp-p\.mp,2\+rank/);
   assert.match(game, /Math\.min\(p\.maxHp-p\.hp,2\)/);
   assert.match(game, /Math\.min\(p\.maxMp-p\.mp,1\)/);
 });
@@ -48,7 +48,7 @@ test("recruited companion ability is explained in dialogue and Bonds Codex", () 
 test("companion combat update preserves version-2 save keys and companion records", () => {
   assert.match(game, /const SAVE_KEY="eightBitRpgSaveV2_slot_"/);
   assert.match(game, /version:2/);
-  assert.match(game, /companions:\{active:state\.companions\.active,records:/);
+  assert.match(game, /companions:\{active:state\.companions\.active,tactic:state\.companions\.tactic/);
 });
 
 
