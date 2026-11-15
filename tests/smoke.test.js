@@ -451,3 +451,35 @@ test("Expansion dungeon access and completion flags are stored without changing 
   assert.match(game, /d\.region>7/);
   assert.match(game, /version:2,savedAt/);
 });
+
+ 
+test("Adventurer Codex adds a sixth tab and quest, bestiary, achievement and collection views", () => {
+  assert.match(html, /data-tab="codex"/);
+  for (const view of ["quests","bestiary","achievements","collection"]) assert.ok(game.includes('data-codex-view="'+view+'"'));
+  assert.match(game, /function renderCodex\(\)/);
+  assert.match(game, /data-quest-filter="active"/);
+  assert.match(game, /data-quest-filter="completed"/);
+  assert.match(game, /data-track-quest=/);
+});
+ 
+test("Tracked quest objectives render map markers and the bestiary records visible and defeated enemies", () => {
+  assert.match(game, /function drawQuestMarker\(camX,camY\)/);
+  assert.match(game, /drawQuestMarker\(camX,camY\)/);
+  assert.match(game, /recordEnemySeen\(e\)/);
+  assert.match(game, /state\.codex\.bestiary\[target\.name\]\.defeated/);
+});
+ 
+test("Codex achievements and item collection persist in compatible version-2 saves", () => {
+  assert.match(game, /codex:\{view:state\.codex\.view/);
+  assert.match(game, /state\.codex=\{view:"quests",questFilter:"active"/);
+  assert.match(game, /function validSaveData\(d\)\{if\(d&&d\.codex!==undefined\)/);
+  assert.match(game, /state\.codex\.collection\[id\]=/);
+  assert.match(game, /function evaluateAchievements\(\)/);
+  assert.match(game, /version:2,savedAt/);
+});
+ 
+test("Codex styles remain responsive and the service worker cache is refreshed", () => {
+  assert.match(css, /\.codex-nav/);
+  assert.match(css, /@media\(max-width:480px\)\{\.tabbar\{grid-template-columns:repeat\(3/);
+  assert.match(worker, /eight-bit-rpg-v20/);
+});
