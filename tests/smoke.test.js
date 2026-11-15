@@ -489,3 +489,30 @@ test("Codex collection also discovers rewards added by legacy quest and NPC rewa
   assert.match(game, /function updateUI\(\)\{Object\.entries\(state\.inventory\)/);
   assert.match(game, /done:\(\)=>state\.quests\.slimes==="claimed"/);
 });
+
+ 
+test("Eight realm companions are added in their home kingdom hubs", () => {
+  assert.match(game, /const COMPANIONS=\[/);
+  assert.equal((game.match(/id:"(?:talia|rafi|brin|nima|korr|sela|nyx|elara)"/g)||[]).length, 8);
+  assert.match(game, /function attachRealmCompanion\(\)/);
+  assert.match(game, /kind:"realmCompanion"/);
+  assert.equal((game.match(/attachRealmCompanion\(\);return/g)||[]).length, 7);
+  assert.match(game, /if\(area==="village"\)attachRealmCompanion\(\)/);
+});
+ 
+test("Companion dialogue supports trust, side-story delivery, recruitment and dismissal", () => {
+  for (const id of ["bondStory","bondQuest","bondTurnIn","bondRecruit","bondDismiss"]) assert.match(game, new RegExp('id="'+id+'"'));
+  assert.match(game, /function handleRealmCompanion\(npc\)/);
+  assert.match(game, /function drawCompanionFollower\(camX,camY\)/);
+  assert.match(game, /drawCompanionFollower\(camX,camY\)/);
+});
+ 
+test("Companion side stories appear in the Codex and persist in version-2 saves", () => {
+  assert.match(game, /id:"bond-"\+c\.id/);
+  assert.match(game, /data-codex-view="bonds"/);
+  assert.match(game, /companions:\{active:state\.companions\.active,records:/);
+  assert.match(game, /state\.companions=\{active:"",records:/);
+  assert.match(game, /function validSaveData\(d\)\{if\(d&&d\.codex!==undefined\)/);
+  assert.match(worker, /eight-bit-rpg-v21/);
+  assert.match(css, /\.bond-choice/);
+});
