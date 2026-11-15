@@ -47,7 +47,9 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 - Optional Shadowmere endgame secret: defeating the Hollow King breaks the seal around a hidden reserve in Hollowmoon Crypt. Find the Wraithbound Reliquary for a one-time reward of 700 gold, 4 Gloom Sigils and 500 XP.
 - Celestia final chapter: meet Astral Navigator Elion in Starfall Citadel; explore Astral Gardens, Moonlit Observatory and Voidglass Sanctum; deliver 3 Star Sigils to the Oracle of the Last Dawn; restore the Starheart; open the Zenith Gate; and defeat the 520-HP Celestial Warden in the Zenith Throne. Victory grants 1,000 gold, 7 Star Sigils, +20 maximum HP and +8 maximum MP, and marks the final chapter complete.
 - Inventory, character sheet, kingdom overview, quest journal and local save.
-- Adventurer’s Codex: active/completed/all quest views, quest progress and tracking, live map markers for tracked objectives and dungeon interactions, a bestiary that records visible enemy species and defeats, 12 persistent achievements, and an item collection log. Codex progress is included in the existing version-2 local save format and migrates older saves with empty defaults.
+- Adventurer’s Codex: active/completed/all quest views, quest progress and tracking, live map markers for tracked objectives and dungeon interactions, a bestiary that records visible enemy species and defeats, 12 persistent achievements, and an item collection log.
+- Eight named realm companions, one per kingdom, with personal backstories, branching trust dialogue, one material-gathering side story each, recruit/dismiss choices, and a visible travelling follower. One companion can accompany the hero at a time.
+- Companion trust, side-story progress and party selection are saved locally in the existing version-2 format; older saves migrate with empty companion records.
 - Six playable character classes: Warrior, Mage, Archer, Rogue, Paladin and Ranger.
 - Story progression across eight kingdoms, with chapter quests, collectible materials, seal puzzles and a culminating final boss encounter in Celestia.
 - Three independent local save slots with validated JSON export/import backups; saves never leave the device unless the player explicitly exports a file.
@@ -79,7 +81,7 @@ The next development phases are expansions to the completed world, rather than a
 1. Add more optional side quests, NPC stories and explorable settlements across existing kingdoms beyond the Starbound Keeper archive story.
 2. Expand the existing dungeon network with more secret chambers, puzzle variants and boss-specific phase-two patterns. The three-floor Greenvale expansion and seven themed regional challenge dungeons are now in place.
 3. Continue balancing class skills, equipment tiers, crafting recipes and loot variety.
-4. Add endgame challenges, replayable boss encounters, achievements and personal records. The Codex now includes persistent achievements, quest tracking, bestiary records and item collection.
+4. Add endgame challenges, replayable boss encounters, achievements and personal records. The Codex now includes persistent achievements, quest tracking, bestiary records, item collection, and a Bonds view for eight kingdom companion stories.
 5. Expand automated regression coverage and perform hands-on browser testing across desktop and mobile devices.
 
 ## Project constraints
