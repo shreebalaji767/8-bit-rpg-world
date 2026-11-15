@@ -4,7 +4,7 @@ A free, browser-based top-down action RPG built with vanilla HTML, CSS and JavaS
 
 ## Play
 
-The site opens on a dedicated retro-modern title hub. Continue the most recently saved adventure, continue any of the three slots, or start a new game in a chosen slot. Replacing an occupied slot requires confirmation; the other slots remain untouched. Settings persist sound-mute and reduced-motion preferences separately from game progress. Controls and credits are available before starting. During play, use **PAUSE** (or Escape) to suspend the action, **RESUME** to continue, and **EXIT** to save and return to the title screen.
+Every normal site load opens on the landing page; saved adventures are never started automatically. Browser refresh performs a normal page reload, and the landing page is shown again. Both the landing-page logo and in-game logo return to the landing page; leaving gameplay through the logo saves progress first. The site opens on a dedicated retro-modern title hub. Continue the most recently saved adventure, continue any of the three slots, or start a new game in a chosen slot. Replacing an occupied slot requires confirmation; the other slots remain untouched. Settings persist sound-mute and reduced-motion preferences separately from game progress. Controls and credits are available before starting. During play, use **PAUSE** (or Escape) to suspend the action, **RESUME** to continue, and **EXIT** to save and return to the title screen.
 
 After GitHub Pages is enabled for the `main` branch (root), visit:
 
