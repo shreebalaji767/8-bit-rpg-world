@@ -24,6 +24,8 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 - The Forgotten Root Dungeon, a Runic Switch puzzle gate, a hidden eastern vault revealed by the Ancient Inscription, and a two-phase Rootbound Guardian boss encounter.
 - Boss encounters across all kingdoms now enter phase two at half health: attacks gain damage and a telegraphed shockwave reaches two tiles, giving players a chance to retreat.
 - The Forgotten Reliquary is a one-time secret-room reward: 120 gold, 2 Copper Ore, 2 Blue Ether and 80 XP. Its discovery and claim are stored in the existing quest-save data.
+- Optional Celestia side story: the Starbound Keeper asks for 3 Star Sigils to reveal a hidden archive in Voidglass Sanctum. The Starheart Reliquary grants a one-time reward of 500 gold, 2 Star Sigils, 2 Aether Shards and 300 XP.
+- Replayable endgame challenge: after defeating the Celestial Warden, speak with the Chronicle of Creation in Zenith Throne to summon a 680-HP Echo of the Warden. Each victory records a permanent local trial count and awards 250 gold (increasing by 50 per win, capped at 500) plus a Star Sigil. The echo can be summoned again after each victory.
 - Six class-specific mana skills on K / the mobile skill button: Warrior Power Strike, Mage Arcane Bolt, Archer Piercing Shot, Rogue Backstab, Ranger Hunter Volley and Paladin Holy Vigor. Skills have different range, damage and support effects.
 - Legendary endgame crafting: Starforged Blade (+12 attack) and Eightfold Aegis (+10 defence), requiring materials gathered across multiple kingdoms.
 - Equipment slots, equipable weapons and armor, plus field crafting recipes for potions and gear, including the Whisperwood Bow and Copperguard Mail.
@@ -72,7 +74,7 @@ Game progress is stored in this browser localStorage. It does not sync between d
 
 The next development phases are expansions to the completed world, rather than additional locked kingdoms:
 
-1. Add more optional side quests, NPC stories and explorable settlements across existing kingdoms.
+1. Add more optional side quests, NPC stories and explorable settlements across existing kingdoms beyond the Starbound Keeper archive story.
 2. Expand the existing dungeon network with more secret chambers, puzzle variants and boss-specific phase-two patterns.
 3. Continue balancing class skills, equipment tiers, crafting recipes and loot variety.
 4. Add endgame challenges, replayable boss encounters, achievements and personal records.

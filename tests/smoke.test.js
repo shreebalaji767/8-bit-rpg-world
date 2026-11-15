@@ -346,3 +346,29 @@ test("Forgotten Root secret vault opens from the inscription and rewards only on
   assert.match(game, /kind:"secretCache"/);
   assert.match(game, /state\.quests\.dungeonCacheClaimed=true/);
 });
+
+
+test("Starbound Keeper opens a persistent Starheart archive after the sigil turn-in", () => {
+  assert.match(game, /name:"Starbound Keeper",kind:"starboundKeeper"/);
+  assert.match(game, /state\.quests\.celestialVaultQuest=true/);
+  assert.match(game, /state\.inventory\.starSigil-=3/);
+  assert.match(game, /state\.quests\.celestialVaultOpen=true/);
+  assert.match(game, /name:"Starheart Reliquary",kind:"starheartCache"/);
+  assert.match(game, /state\.quests\.celestialVaultClaimed=true/);
+  assert.match(game, /d\.quests\.celestialTrialWins/);
+});
+
+test("Celestial Warden echo challenge can be replayed and records victories in local saves", () => {
+  assert.match(game, /state\.quests\.celestialTrialActive=true/);
+  assert.match(game, /celestialEchoBoss:true/);
+  assert.match(game, /state\.quests\.celestialTrialActive=false/);
+  assert.match(game, /celestialTrialWins=\(state\.quests\.celestialTrialWins\|\|0\)\+1/);
+  assert.match(game, /250\+Math\.min\(250,\(state\.quests\.celestialTrialWins-1\)\*50\)/);
+  assert.match(game, /celestialTrialActive:false,celestialTrialWins:0/);
+});
+
+test("new Celestia optional quest and trial fields validate without rejecting legacy saves", () => {
+  assert.match(game, /typeof d\.quests\[key\]!=="boolean"/);
+  assert.match(game, /celestialTrialWins>99999/);
+  assert.match(game, /version:2,savedAt/);
+});
