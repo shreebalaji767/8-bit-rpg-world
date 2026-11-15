@@ -413,6 +413,7 @@ test("The Thornbound Matriarch unlocks the Heartseal and the Heartroot Colossus"
   assert.match(game, /state\.quests\.dungeonDepthsBoss=true/);
   assert.match(game, /kind:"coreSwitch"/);
   assert.match(game, /state\.quests\.dungeonCoreSeal=true/);
+  assert.match(game, /state\.enemies\.push\(\{name:"Heartroot Colossus"/);
   assert.match(game, /name:"Heartroot Colossus",x:24,y:10,hp:310/);
   assert.match(game, /state\.quests\.dungeonCoreBoss=true/);
 });
