@@ -510,8 +510,8 @@ test("Companion dialogue supports trust, side-story delivery, recruitment and di
 test("Companion side stories appear in the Codex and persist in version-2 saves", () => {
   assert.match(game, /id:"bond-"\+c\.id/);
   assert.match(game, /data-codex-view="bonds"/);
-  assert.match(game, /companions:\{active:state\.companions\.active,records:/);
-  assert.match(game, /state\.companions=\{active:"",records:/);
+  assert.ok(game.includes('companions:{active:state.companions.active,tactic:state.companions.tactic||"balanced",records:'));
+  assert.ok(game.includes('state.companions={active:"",tactic:["balanced","aggressive","defensive","support"].includes(d.companions&&d.companions.tactic)?d.companions.tactic:"balanced",records:'));
   assert.match(game, /function validSaveData\(d\)\{if\(d&&d\.codex!==undefined\)/);
   assert.ok(/eight-bit-rpg-v\\d+/.test(worker));
   assert.match(css, /\.bond-choice/);
