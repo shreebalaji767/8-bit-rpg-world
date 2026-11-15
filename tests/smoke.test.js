@@ -423,3 +423,23 @@ test("New dungeon progression and rewards remain backward-compatible with versio
   assert.match(game, /version:2,savedAt/);
   assert.match(game, /dungeonDepthsSwitch.*dungeonCoreSeal.*dungeonDepthsBoss/s);
 });
+
+
+test("Six kingdom side dungeons and the Celestia endgame labyrinth are registered", () => {
+  for (const area of ["suncrypt","frostvault","skymaze","emberforge","tidearchive","gloomcatacomb","astralmaze"]) assert.ok(game.includes(area));
+  assert.ok(game.includes("Tomb of the Sun"));
+  assert.ok(game.includes("The Sevenfold Orrery"));
+  assert.ok(game.includes("EXP_DUNGEONS"));
+});
+test("Every expansion dungeon has a return sigil, unique puzzle text and a regional boss", () => {
+  assert.match(game, /kind:"expDungeonExit"/);
+  assert.match(game, /kind:"expDungeonPuzzle"/);
+  assert.match(game, /EXP_PUZZLES/);
+  assert.match(game, /expansionBoss:true/);
+  assert.match(game, /target\.expansionBoss/);
+});
+test("Expansion dungeon access and completion flags are stored without changing the eight-region limit", () => {
+  for (const flag of ["expPuzzle1","expPuzzle2","expPuzzle3","expPuzzle4","expPuzzle5","expPuzzle6","expPuzzle7","expBoss1","expBoss2","expBoss3","expBoss4","expBoss5","expBoss6","expBoss7"]) assert.ok(game.includes(flag));
+  assert.match(game, /d\.region>7/);
+  assert.match(game, /version:2,savedAt/);
+});
