@@ -481,7 +481,7 @@ test("Codex achievements and item collection persist in compatible version-2 sav
 test("Codex styles remain responsive and the service worker cache is refreshed", () => {
   assert.match(css, /\.codex-nav/);
   assert.match(css, /@media\(max-width:480px\)\{\.tabbar\{grid-template-columns:repeat\(3/);
-  assert.ok(/eight-bit-rpg-v\\d+/.test(worker));
+  assert.ok(worker.includes("eight-bit-rpg-v30"));
 });
 
  
