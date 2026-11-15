@@ -416,6 +416,7 @@ test("The Thornbound Matriarch unlocks the Heartseal and the Heartroot Colossus"
   assert.match(game, /state\.enemies\.push\(\{name:"Heartroot Colossus"/);
   assert.match(game, /name:"Heartroot Colossus",x:24,y:10,hp:310/);
   assert.match(game, /state\.quests\.dungeonCoreBoss=true/);
+  assert.match(game, /target\.name==="Thornbound Matriarch"\|\|target\.name==="Heartroot Colossus"/);
 });
 test("New dungeon progression and rewards remain backward-compatible with version-2 local saves", () => {
   for (const flag of ["dungeonDepthsSwitch","dungeonCoreSeal","dungeonDepthsBoss","dungeonCoreBoss","dungeonCoreCacheOpen","dungeonCoreCacheClaimed"]) assert.ok(game.includes(flag));
