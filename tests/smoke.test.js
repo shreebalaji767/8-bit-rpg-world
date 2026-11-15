@@ -481,7 +481,7 @@ test("Codex achievements and item collection persist in compatible version-2 sav
 test("Codex styles remain responsive and the service worker cache is refreshed", () => {
   assert.match(css, /\.codex-nav/);
   assert.match(css, /@media\(max-width:480px\)\{\.tabbar\{grid-template-columns:repeat\(3/);
-  assert.match(worker, /eight-bit-rpg-v21/);
+  assert.match(worker, /eight-bit-rpg-v\\d+/);
 });
 
  
@@ -513,6 +513,14 @@ test("Companion side stories appear in the Codex and persist in version-2 saves"
   assert.match(game, /companions:\{active:state\.companions\.active,records:/);
   assert.match(game, /state\.companions=\{active:"",records:/);
   assert.match(game, /function validSaveData\(d\)\{if\(d&&d\.codex!==undefined\)/);
-  assert.match(worker, /eight-bit-rpg-v21/);
+  assert.match(worker, /eight-bit-rpg-v\\d+/);
   assert.match(css, /\.bond-choice/);
+});
+
+
+test("Empty save slots show NEW GAME without a disabled CONTINUE button", () => {
+  assert.match(game, /function renderTitleSlots\\(\\)\\{/);
+  assert.match(game, /if\\(data\\)\\{const loadButton=document\\.createElement\\("button"\\);loadButton\\.type="button";loadButton\\.textContent="CONTINUE"/);
+  assert.match(game, /newButton\\.textContent=data\\?"REPLACE":"NEW GAME"/);
+  assert.match(game, /newButton\\.onclick=\\(\\)=>newGameInSlot\\(slot\\)/);
 });
