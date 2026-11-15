@@ -4,6 +4,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const game = fs.readFileSync(path.join(__dirname, "..", "game.js"), "utf8");
+const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
 
 test("all eight companions define a distinct combat role and ability", () => {
   const roles = [...game.matchAll(/role:"(healer|ranged|guard|mana|heavy|support|swift|arcane)",abilityName:"([^"]+)",abilityDesc:"([^"]+)"/g)];
@@ -71,7 +72,8 @@ test("party screen exposes loadouts, tactics and skill upgrades", () => {
   assert.match(game, /data-party-gear/);
   assert.match(game, /data-party-tactic/);
   assert.match(game, /data-party-skill/);
-  assert.match(game, /data-tab="party"/);
+  assert.match(html, /data-tab="party"/);
+  assert.match(game, /companionXP\(1\)/);
 });
 test("companion save validation bounds progression fields", () => {
   assert.match(game, /r\.level>20/);
