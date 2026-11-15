@@ -16,3 +16,9 @@
 .codex-entry.locked{opacity:.55}
 .codex-tracked{border:1px solid #826e3d;padding:8px;color:var(--gold);font-size:9px;line-height:1.5}
 @media(max-width:480px){.tabbar{grid-template-columns:repeat(3,minmax(0,1fr))}.codex-nav button,.codex-filters button{flex:1}}
+
+.bond-meter{border:1px solid #826e3d;padding:9px;color:var(--gold);font-size:10px;letter-spacing:.08em;margin:10px 0}
+.bond-choice{display:block;width:100%;margin:7px 0;padding:10px;text-align:left;font-size:10px;color:var(--gold);border:1px solid #826e3d;background:#29392d}
+.bond-choice:disabled{opacity:.4;cursor:not-allowed}
+.codex-nav button{flex:1}
+@media(max-width:480px){.codex-nav button{min-width:30%;}}
