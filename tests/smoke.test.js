@@ -363,7 +363,8 @@ test("Celestial Warden echo challenge can be replayed and records victories in l
   assert.match(game, /celestialEchoBoss:true/);
   assert.match(game, /state\.quests\.celestialTrialActive=false/);
   assert.match(game, /celestialTrialWins=\(state\.quests\.celestialTrialWins\|\|0\)\+1/);
-  assert.match(game, /250\+Math\.min\(250,\(state\.quests\.celestialTrialWins-1\)\*50\)/);
+  assert.match(game, /p\.coins\+=target\.celestialEchoBoss\?0:target\.boss\?100:5/);
+  assert.match(game, /p\.coins\+=250\+Math\.min\(250,\(state\.quests\.celestialTrialWins-1\)\*50\);save\(\)/);
   assert.match(game, /celestialTrialActive:false,celestialTrialWins:0/);
 });
 
