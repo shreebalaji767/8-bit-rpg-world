@@ -142,3 +142,19 @@ test("title slot cards only enable continue for validated local saves", () => {
   assert.match(game, /return validSaveData\(data\)\?data:null/);
   assert.match(game, /loadButton\.disabled=!data/);
 });
+
+test("every fresh page load starts on the landing page without auto-resuming gameplay", () => {
+  assert.match(game, /function init\(\)\{state\.started=false;state\.paused=false;\$\("landingPage"\)\.classList\.remove\("hidden"\);\$\("gameScreen"\)\.classList\.add\("hidden"\)/);
+  assert.match(game, /\$\("playButton"\)\.onclick=continueLatest/);
+  assert.doesNotMatch(game, /function init\(\)[^]*?startGame\(true\)/);
+});
+test("both game logos navigate to the landing page and save before leaving gameplay", () => {
+  assert.equal((html.match(/data-home-link/g)||[]).length, 2);
+  assert.match(game, /document\.querySelectorAll\("\[data-home-link\]"\)/);
+  assert.match(game, /if\(state\.started\)exitToTitle\(\)/);
+  assert.match(game, /function exitToTitle\(\)\{if\(state\.started\)save\(\)/);
+});
+test("browser refresh is not intercepted or rewritten by custom navigation handlers", () => {
+  assert.doesNotMatch(game, /beforeunload|onbeforeunload|location\.reload\(\).*refresh/i);
+  assert.doesNotMatch(game, /addEventListener\(["']keydown["'][^]*?preventDefault\(\)[^]*?F5/);
+});
