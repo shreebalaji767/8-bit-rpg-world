@@ -4,7 +4,7 @@ A free, browser-based top-down action RPG built with vanilla HTML, CSS and JavaS
 
 ## Play
 
-The site opens on a dedicated retro-modern title screen. Select **PLAY GAME** to continue the local save or create a new hero. During play, use **PAUSE** (or Escape) to suspend the action, **RESUME** to continue, and **EXIT** to save and return to the title screen. The title screen, pause overlay and game controls are responsive on desktop and mobile.
+The site opens on a dedicated retro-modern title hub. Continue the most recently saved adventure, continue any of the three slots, or start a new game in a chosen slot. Replacing an occupied slot requires confirmation; the other slots remain untouched. Settings persist sound-mute and reduced-motion preferences separately from game progress. Controls and credits are available before starting. During play, use **PAUSE** (or Escape) to suspend the action, **RESUME** to continue, and **EXIT** to save and return to the title screen.
 
 After GitHub Pages is enabled for the `main` branch (root), visit:
 
@@ -75,7 +75,7 @@ No build step or dependencies are required. Open `index.html` through a local st
 
 ## Storage and privacy
 
-Game progress is stored in this browser localStorage. It does not sync between devices and clearing browser site data can erase it. Use Save Game before switching devices or clearing browser data. Open **SAVE SLOTS · BACKUP** to choose among three slots or export/import a JSON backup. Imported files are size-limited and validated before replacing the selected slot.
+Game progress is stored in this browser localStorage. It does not sync between devices and clearing browser site data can erase it. Use Save Game before switching devices or clearing browser data. Open **SAVE SLOTS · BACKUP** to choose among three slots or export/import a JSON backup. The title screen also shows all three slots and lets you continue or start a separate adventure in a selected slot. Imported files are size-limited and validated before replacing the selected slot.
 
 ## World completion and next development
 
