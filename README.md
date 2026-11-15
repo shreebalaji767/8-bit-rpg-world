@@ -21,7 +21,9 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 - A seventh playable kingdom, Shadowmere, with five cursed areas: Gloam Village, Blackbriar Wood, Wraithfen Moor, Hollowmoon Crypt and Nightveil Citadel.
 - An eighth and final playable kingdom, Celestia, with five celestial areas: Starfall Citadel, Astral Gardens, Moonlit Observatory, Voidglass Sanctum and Zenith Throne.
 - Area-specific terrain palettes, enemy populations, exploration NPCs and boundary-based routes.
-- The Forgotten Root Dungeon, a Runic Switch puzzle gate and its two-phase Rootbound Guardian boss encounter.
+- The Forgotten Root Dungeon, a Runic Switch puzzle gate, a hidden eastern vault revealed by the Ancient Inscription, and a two-phase Rootbound Guardian boss encounter.
+- Boss encounters across all kingdoms now enter phase two at half health: attacks gain damage and a telegraphed shockwave reaches two tiles, giving players a chance to retreat.
+- The Forgotten Reliquary is a one-time secret-room reward: 120 gold, 2 Copper Ore, 2 Blue Ether and 80 XP. Its discovery and claim are stored in the existing quest-save data.
 - Six class-specific mana skills on K / the mobile skill button: Warrior Power Strike, Mage Arcane Bolt, Archer Piercing Shot, Rogue Backstab, Ranger Hunter Volley and Paladin Holy Vigor. Skills have different range, damage and support effects.
 - Legendary endgame crafting: Starforged Blade (+12 attack) and Eightfold Aegis (+10 defence), requiring materials gathered across multiple kingdoms.
 - Equipment slots, equipable weapons and armor, plus field crafting recipes for potions and gear, including the Whisperwood Bow and Copperguard Mail.
@@ -71,7 +73,7 @@ Game progress is stored in this browser localStorage. It does not sync between d
 The next development phases are expansions to the completed world, rather than additional locked kingdoms:
 
 1. Add more optional side quests, NPC stories and explorable settlements across existing kingdoms.
-2. Expand dungeons with additional puzzles, secret rooms, enemy waves and multi-phase boss encounters.
+2. Expand the existing dungeon network with more secret chambers, puzzle variants and boss-specific phase-two patterns.
 3. Continue balancing class skills, equipment tiers, crafting recipes and loot variety.
 4. Add endgame challenges, replayable boss encounters, achievements and personal records.
 5. Expand automated regression coverage and perform hands-on browser testing across desktop and mobile devices.

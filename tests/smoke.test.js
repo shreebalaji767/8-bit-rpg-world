@@ -81,7 +81,7 @@ test("enemy defeat or death cannot keep processing the old area's enemy list", (
 
 test("Rootbound Guardian uses a readable wind-up and a stronger second phase", () => {
   assert.match(game, /e\.name\.toUpperCase\(\)\+": a crushing strike is coming/);
-  assert.match(game, /e\.hp<=e\.maxHp\/2\?18:12/);
+  assert.match(game, /e\.phase===2\?e\.atk\+6:e\.atk/);
   assert.match(game, /e\.telegraph\?"#f2a84b"/);
 });
 
@@ -330,3 +330,19 @@ test("world time persists without breaking existing version-2 saves", () => {
 test("six classes have distinct mana skills with role-specific reach and effects", () => { assert.match(game,/p\.class==="Mage"\?4:p\.class==="Archer"\?3:p\.class==="Ranger"\?3/); for(const skill of ["ARCANE BOLT","PIERCING SHOT","BACKSTAB","HUNTER VOLLEY","HOLY VIGOR","POWER STRIKE"]) assert.ok(game.includes(skill),"missing "+skill); assert.match(game,/p\.hp=Math\.min\(p\.maxHp,p\.hp\+18\)/); });
 
 test("legendary endgame equipment has cross-kingdom recipes and crafting controls", () => { assert.match(game,/starforgedBlade:\{name:"Starforged Blade"/); assert.match(game,/eightfoldAegis:\{name:"Eightfold Aegis"/); assert.match(game,/starforgedBlade:\{cost:\{starSigil:3,gloomSigil:2,emberHeart:2,tidePearl:2\}\}/); assert.match(game,/eightfoldAegis:\{cost:\{starSigil:2,frostCore:3,aetherShard:2,tidePearl:2\}\}/); assert.match(game,/data-craft="starforgedBlade"/); assert.match(game,/data-craft="eightfoldAegis"/); });
+
+
+test("all kingdom bosses transition into a telegraphed phase-two shockwave", () => {
+  assert.match(game, /target\.boss&&target\.hp>0&&target\.hp<=target\.maxHp\/2&&target\.phase!==2/);
+  assert.match(game, /e\.phase===2\?2:1/);
+  assert.match(game, /e\.phase===2\?e\.atk\+6:e\.atk/);
+  assert.match(game, /ultimate attack is charging/);
+});
+
+test("Forgotten Root secret vault opens from the inscription and rewards only once", () => {
+  assert.match(game, /dungeonSecretOpen:false,dungeonCacheClaimed:false/);
+  assert.match(game, /for\(let y=17;y<=26;y\+\+\)state\.grid\[y\]\[38\]=2/);
+  assert.match(game, /state\.grid\[21\]\[38\]=0;state\.grid\[22\]\[38\]=0/);
+  assert.match(game, /kind:"secretCache"/);
+  assert.match(game, /state\.quests\.dungeonCacheClaimed=true/);
+});
