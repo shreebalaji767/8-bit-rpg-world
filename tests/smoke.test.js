@@ -433,13 +433,17 @@ test("Six kingdom side dungeons and the Celestia endgame labyrinth are registere
 });
 test("Every expansion dungeon has a return sigil, unique puzzle text and a regional boss", () => {
   assert.match(game, /kind:"expDungeonExit"/);
-  assert.match(game, /kind:"expDungeonPuzzle"/);
+  assert.match(game, /kind:"expDungeonRune"/);
+  assert.match(game, /EXP_PUZZLE_ORDER/);
+  assert.match(game, /state\.quests\[progressKey\]=progress\+1/);
+  assert.match(game, /Wrong rune order\. The sequence resets/);
+  assert.match(game, /function applyExpansionHazard/);
   assert.match(game, /EXP_PUZZLES/);
   assert.match(game, /expansionBoss:true/);
   assert.match(game, /target\.expansionBoss/);
 });
 test("Expansion dungeon access and completion flags are stored without changing the eight-region limit", () => {
-  for (const flag of ["expPuzzle1","expPuzzle2","expPuzzle3","expPuzzle4","expPuzzle5","expPuzzle6","expPuzzle7","expBoss1","expBoss2","expBoss3","expBoss4","expBoss5","expBoss6","expBoss7"]) assert.ok(game.includes(flag));
+  for (const flag of ["expPuzzle1","expPuzzle2","expPuzzle3","expPuzzle4","expPuzzle5","expPuzzle6","expPuzzle7","expBoss1","expBoss2","expBoss3","expBoss4","expBoss5","expBoss6","expBoss7","expRunes1","expRunes2","expRunes3","expRunes4","expRunes5","expRunes6","expRunes7"]) assert.ok(game.includes(flag));
   assert.match(game, /d\.region>7/);
   assert.match(game, /version:2,savedAt/);
 });
