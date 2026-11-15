@@ -93,7 +93,7 @@ test("all-eight companion milestones award Codex achievements", () => {
 test("landing page is the initial entry point with a Play button", () => {
   assert.match(html, /id="landingPage"/);
   assert.match(html, /id="playButton"/);
-  assert.match(game, /function init\(\)\{const loaded=load\(\);if\(loaded\)\{setupArea/);
+  assert.match(game, /function init\(\)\{const loaded=load\(\);state\.hasSave=loaded;if\(loaded\)\{setupArea/);
   assert.match(game, /if\(!state.started\|\|state.paused\)/);
 });
 
