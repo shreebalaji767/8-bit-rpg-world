@@ -25,8 +25,8 @@ test("companion support is automatic and rate-limited", () => {
 test("healing and mana support cannot exceed player maximums", () => {
   assert.match(game, /Math\.min\(p\.maxHp-p\.hp,3\+Math\.floor\(p\.level\/10\)\+rank\*2/);
   assert.match(game, /Math\.min\(p\.maxMp-p\.mp,2\+rank/);
-  assert.match(game, /Math\.min\(p\.maxHp-p\.hp,2\)/);
-  assert.match(game, /Math\.min\(p\.maxMp-p\.mp,1\)/);
+  assert.match(game, /Math\.min\(p\.maxHp-p\.hp,2\+rank/);
+  assert.match(game, /Math\.min\(p\.maxMp-p\.mp,1\+Math\.floor\(rank\/2\)/);
 });
 
 test("Brin provides damage reduction without making damage negative", () => {
