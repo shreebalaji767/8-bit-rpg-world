@@ -80,3 +80,12 @@ test("companion save validation bounds progression fields", () => {
   assert.match(game, /r\.skillPoints>100/);
   assert.match(game, /r\.xp>999999/);
 });
+
+
+test("all-eight companion milestones award Codex achievements", () => {
+  assert.match(game, /id:"companion_recruit_all"/);
+  assert.match(game, /id:"companion_stories"/);
+  assert.match(game, /recruited:true/);
+  assert.match(game, /r\.level>=3&&state\.region===c\.region&&!r\.homecomingSeen/);
+  assert.match(game, /Trust \+1 · \+50 gold/);
+});
