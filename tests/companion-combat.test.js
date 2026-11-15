@@ -89,3 +89,28 @@ test("all-eight companion milestones award Codex achievements", () => {
   assert.match(game, /r\.level>=3&&state\.region===c\.region&&!r\.homecomingSeen/);
   assert.match(game, /Trust \+1 · \+50 gold/);
 });
+
+test("landing page is the initial entry point with a Play button", () => {
+  assert.match(html, /id="landingPage"/);
+  assert.match(html, /id="playButton"/);
+  assert.match(game, /function init\(\)\{const loaded=load\(\);if\(loaded\)\{setupArea/);
+  assert.match(game, /if\(!state.started\|\|state.paused\)/);
+});
+
+test("pause, resume and exit controls are wired and freeze game updates", () => {
+  assert.match(html, /id="pauseButton"/);
+  assert.match(html, /id="resumeButton"/);
+  assert.match(html, /id="exitButton"/);
+  assert.match(game, /function pauseGame\(\)/);
+  assert.match(game, /function resumeGame\(\)/);
+  assert.match(game, /function exitToTitle\(\)/);
+  assert.match(game, /save\(\);state.started=false/);
+  assert.match(game, /if\(state.paused\)resumeGame\(\);else pauseGame\(\)/);
+});
+
+test("retro-modern theme and mobile layout are present", () => {
+  const css = fs.readFileSync(path.join(__dirname, "..", "styles.css"), "utf8");
+  assert.match(css, /--bg:#111827/);
+  assert.match(css, /pixel-showcase/);
+  assert.match(css, /@media\(max-width:680px\)/);
+});
