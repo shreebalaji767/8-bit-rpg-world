@@ -513,7 +513,7 @@ test("Companion side stories appear in the Codex and persist in version-2 saves"
   assert.ok(game.includes('companions:{active:state.companions.active,tactic:state.companions.tactic||"balanced",records:'));
   assert.ok(game.includes('state.companions={active:"",tactic:["balanced","aggressive","defensive","support"].includes(d.companions&&d.companions.tactic)?d.companions.tactic:"balanced",records:'));
   assert.match(game, /function validSaveData\(d\)\{if\(d&&d\.codex!==undefined\)/);
-  assert.ok(/eight-bit-rpg-v\\d+/.test(worker));
+  assert.ok(worker.includes("eight-bit-rpg-v30"));
   assert.match(css, /\.bond-choice/);
 });
 
