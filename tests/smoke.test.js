@@ -373,3 +373,19 @@ test("new Celestia optional quest and trial fields validate without rejecting le
   assert.match(game, /celestialTrialWins>99999/);
   assert.match(game, /version:2,savedAt/);
 });
+
+test("Hollow King victory opens a persistent secret reserve in Hollowmoon Crypt", () => {
+  assert.match(game, /state\.quests\.shadowVaultOpen=true/);
+  assert.match(game, /clear\(35,19,43,27\)/);
+  assert.match(game, /state\.grid\[23\]\[34\]=0/);
+  assert.match(game, /name:"Wraithbound Reliquary",kind:"shadowVaultCache"/);
+  assert.match(game, /state\.quests\.shadowVaultClaimed=true/);
+  assert.match(game, /state\.player\.coins\+=700/);
+  assert.match(game, /addItem\("gloomSigil",4\)/);
+  assert.match(game, /gainXP\(500\)/);
+});
+test("Shadowmere secret vault flags are validated and migrated in existing local saves", () => {
+  assert.match(game, /shadowVaultOpen:false,shadowVaultClaimed:false/);
+  assert.match(game, /"shadowVaultOpen","shadowVaultClaimed"/);
+  assert.match(game, /state\.quests\.shadowVaultOpen=true;state\.quests\.celestiaUnlocked=true/);
+});

@@ -44,6 +44,7 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 - Infernia chapter quest: meet Forgekeeper Vela, deliver 3 Ember Hearts to the Ash Sage, open the Infernal Seal and defeat the 340-HP Infernal Regent.
 - Thalassia chapter quest: meet Harbormaster Neris, deliver 3 Tide Pearls to Pearl Diver Sela, awaken the Pearlheart Seal and defeat the 380-HP Leviathan of the Deep.
 - Shadowmere chapter quest: meet Village Keeper Maelin, deliver 3 Gloom Sigils to the Mourning Seer, awaken the Nightveil Seal and defeat the 430-HP Hollow King.
+- Optional Shadowmere endgame secret: defeating the Hollow King breaks the seal around a hidden reserve in Hollowmoon Crypt. Find the Wraithbound Reliquary for a one-time reward of 700 gold, 4 Gloom Sigils and 500 XP.
 - Celestia final chapter: meet Astral Navigator Elion in Starfall Citadel; explore Astral Gardens, Moonlit Observatory and Voidglass Sanctum; deliver 3 Star Sigils to the Oracle of the Last Dawn; restore the Starheart; open the Zenith Gate; and defeat the 520-HP Celestial Warden in the Zenith Throne. Victory grants 1,000 gold, 7 Star Sigils, +20 maximum HP and +8 maximum MP, and marks the final chapter complete.
 - Inventory, character sheet, kingdom overview, quest journal and local save.
 - Six playable character classes: Warrior, Mage, Archer, Rogue, Paladin and Ranger.
