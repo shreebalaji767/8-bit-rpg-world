@@ -75,6 +75,8 @@ No build step or dependencies are required. Open `index.html` through a local st
 
 ## Storage and privacy
 
+A one-time cleanup on the updated game removes all three previously stored save slots and the legacy version-1 save, because older automatic and manual progress used the same storage format and could not be distinguished safely. This cleanup runs only once per browser and device; new manual saves made afterward are retained.
+
 Game progress is stored in this browser localStorage. It does not sync between devices and clearing browser site data can erase it. Use the in-game **SAVE GAME** button whenever you want to save. The game never saves automatically: exiting, clicking the logo, refreshing or closing the tab does not write progress. Open **SAVE SLOTS · BACKUP** to choose among three slots or export/import a JSON backup. The title screen also shows all three slots and lets you continue or start a separate adventure in a selected slot. Imported files are size-limited and validated before replacing the selected slot.
 
 ## World completion and next development
