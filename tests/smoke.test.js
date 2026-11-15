@@ -191,7 +191,7 @@ test("Frostholm unlock and save compatibility survive loading older Solaria save
   assert.match(game, /REGIONS\[2\]\.unlocked=!!state\.quests\.frostholmUnlocked/);
   assert.match(game, /if\(state\.quests\.solariaBoss\)state\.quests\.frostholmUnlocked=true/);
   assert.match(game, /d\.region>7/);
-  assert.match(game, /d\.region===2&&!\["hamlet","pass","glacier","cavern","citadel"\]\.includes\(d\.area\)/);
+  assert.match(game, /d\.region===2&&!\["hamlet","pass","glacier","cavern","citadel","frostvault"\]\.includes\(d\.area\)/);
 });
 
 test("Aetheria adds five connected floating-island areas and a separate movement route", () => {
@@ -212,7 +212,7 @@ test("Aetheria quest requires three shards and the Sky Sigil before its boss cha
 test("Aetheria progression unlocks after Frostholm and persists in local saves", () => {
   assert.match(game,/state\.quests\.frostholmBoss=true;state\.quests\.aetheriaUnlocked=true;REGIONS\[3\]\.unlocked=true/);
   assert.match(game,/d\.region>7/);
-  assert.match(game,/d\.region===3&&!\["spire","cloudway","windward","lower","shrine"\]\.includes\(d\.area\)/);
+  assert.match(game,/d\.region===3&&!\["spire","cloudway","windward","lower","shrine","skymaze"\]\.includes\(d\.area\)/);
   assert.match(game,/if\(state\.quests\.frostholmBoss\)state\.quests\.aetheriaUnlocked=true/);
 });
 
@@ -233,7 +233,7 @@ test("Infernia quest uses Ember Hearts, a sealed keep and the Infernal Regent", 
 test("Infernia unlocks after Aetheria and its new save area is validated", () => {
   assert.ok(game.includes("state.quests.aetheriaBoss=true;state.quests.inferniaUnlocked=true;REGIONS[4].unlocked=true"));
   assert.ok(game.includes("d.region>7"));
-  assert.ok(game.includes('d.region===4&&!["cinderwatch","emberwild","caldera","tunnels","keep"].includes(d.area)'));
+  assert.ok(game.includes('d.region===4&&!["cinderwatch","emberwild","caldera","tunnels","keep","emberforge"].includes(d.area)'));
   assert.ok(game.includes("if(state.quests.aetheriaBoss)state.quests.inferniaUnlocked=true"));
 });
 
@@ -255,7 +255,7 @@ test("Thalassia quest uses Tide Pearls, palace seal and the Leviathan", () => {
 test("Thalassia unlocks after Infernia and save migration validates its new areas", () => {
   assert.ok(game.includes("state.quests.inferniaBoss=true;state.quests.thalassiaUnlocked=true;REGIONS[5].unlocked=true"));
   assert.ok(game.includes("d.region>7"));
-  assert.ok(game.includes('d.region===5&&!["port","coralway","reef","wreck","palace"].includes(d.area)'));
+  assert.ok(game.includes('d.region===5&&!["port","coralway","reef","wreck","palace","tidearchive"].includes(d.area)'));
   assert.ok(game.includes("if(state.quests.inferniaBoss)state.quests.thalassiaUnlocked=true"));
 });
 
@@ -277,7 +277,7 @@ test("Shadowmere quest requires Gloom Sigils and opens the Hollow King boss gate
 test("Shadowmere unlocks after Thalassia and its save migration validates all new areas", () => {
   assert.ok(game.includes("state.quests.thalassiaBoss=true;state.quests.shadowmereUnlocked=true;REGIONS[6].unlocked=true"));
   assert.ok(game.includes("d.region>7"));
-  assert.ok(game.includes('d.region===6&&!["gloam","blackwood","moor","crypt","citadel"].includes(d.area)'));
+  assert.ok(game.includes('d.region===6&&!["gloam","blackwood","moor","crypt","citadel","gloomcatacomb"].includes(d.area)'));
   assert.ok(game.includes("if(state.quests.thalassiaBoss)state.quests.shadowmereUnlocked=true"));
 });
 
@@ -299,7 +299,7 @@ test("Celestia Starheart quest requires three Star Sigils and opens the Warden g
 test("Celestia unlocks after Shadowmere and final kingdom saves migrate correctly", () => {
   assert.ok(game.includes("state.quests.shadowmereBoss=true;state.quests.shadowVaultOpen=true;state.quests.celestiaUnlocked=true;save();REGIONS[7].unlocked=true"));
   assert.ok(game.includes("d.region>7"));
-  assert.ok(game.includes('d.region===7&&!["starfall","gardens","observatory","sanctum","zenith"].includes(d.area)'));
+  assert.ok(game.includes('d.region===7&&!["starfall","gardens","observatory","sanctum","zenith","astralmaze"].includes(d.area)'));
   assert.ok(game.includes("if(state.quests.shadowmereBoss)state.quests.celestiaUnlocked=true"));
 });
 
