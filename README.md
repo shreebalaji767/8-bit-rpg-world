@@ -49,6 +49,8 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 - Inventory, character sheet, kingdom overview, quest journal and local save.
 - Adventurer’s Codex: active/completed/all quest views, quest progress and tracking, live map markers for tracked objectives and dungeon interactions, a bestiary that records visible enemy species and defeats, 12 persistent achievements, and an item collection log.
 - Eight named realm companions, one per kingdom, with personal backstories, branching trust dialogue, one material-gathering side story each, recruit/dismiss choices, and a visible travelling follower. One companion can accompany the hero at a time.
+- Companion progression: active companions earn XP from victories and ongoing travel, level up to level 20, and receive skill points to upgrade their unique signature ability through three ranks. Returning to a companion’s home kingdom at levels 3 and 5 can trigger a personal homecoming memory, trust increase and gold reward.
+- Party management: a dedicated PARTY screen shows companion level, XP, skill points, combat rating and ability rank. Choose Aggressive, Defensive, Support or Balanced tactics; equip owned weapons and armor plus selectable Heart/Sage charms without consuming or removing the hero’s inventory items.
 - Recruited companions now provide distinct real-time combat support: Talia heals, Rafi fires ranged strikes, Brin reduces incoming damage, Nima restores MP, Korr delivers heavy strikes, Sela restores HP and MP, Nyx performs swift attacks, and Elara casts magic bolts. Support abilities activate automatically during nearby combat and are described in the Bonds view.
 - Companion trust, side-story progress and party selection are saved locally in the existing version-2 format; older saves migrate with empty companion records.
 - Six playable character classes: Warrior, Mage, Archer, Rogue, Paladin and Ranger.
@@ -67,7 +69,7 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 
 ## Local development
 
-No build step or dependencies are required. Open `index.html` through a local static server for service-worker testing. GitHub Pages serves it directly. Run the companion combat regression checks with `node --test tests/companion-combat.test.js` (Node.js 18 or newer).
+No build step or dependencies are required. Open `index.html` through a local static server for service-worker testing. GitHub Pages serves it directly. Run the companion combat and progression regression checks with `node --test tests/companion-combat.test.js` (Node.js 18 or newer).
 
 ## Storage and privacy
 
@@ -79,7 +81,7 @@ Game progress is stored in this browser localStorage. It does not sync between d
 
 The next development phases are expansions to the completed world, rather than additional locked kingdoms:
 
-1. Expand companion progression with optional ability upgrades and additional relationship events across existing kingdoms.
+1. Expand companion progression with additional companion-specific story scenes and deeper tactical combat balancing.
 2. Expand the existing dungeon network with more secret chambers, puzzle variants and boss-specific phase-two patterns. The three-floor Greenvale expansion and seven themed regional challenge dungeons are now in place.
 3. Continue balancing class skills, equipment tiers, crafting recipes and loot variety.
 4. Add endgame challenges, replayable boss encounters, achievements and personal records. The Codex now includes persistent achievements, quest tracking, bestiary records, item collection, and a Bonds view for eight kingdom companion stories.
