@@ -483,3 +483,9 @@ test("Codex styles remain responsive and the service worker cache is refreshed",
   assert.match(css, /@media\(max-width:480px\)\{\.tabbar\{grid-template-columns:repeat\(3/);
   assert.match(worker, /eight-bit-rpg-v20/);
 });
+
+ 
+test("Codex collection also discovers rewards added by legacy quest and NPC reward paths", () => {
+  assert.match(game, /function updateUI\(\)\{Object\.entries\(state\.inventory\)/);
+  assert.match(game, /done:\(\)=>state\.quests\.slimes==="claimed"/);
+});
