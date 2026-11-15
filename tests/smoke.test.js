@@ -372,6 +372,8 @@ test("new Celestia optional quest and trial fields validate without rejecting le
   assert.match(game, /typeof d\.quests\[key\]!=="boolean"/);
   assert.match(game, /celestialTrialWins>99999/);
   assert.match(game, /version:2,savedAt/);
+  assert.match(game, /expRunes1:0,expRunes2:0,expRunes3:0/);
+  assert.match(game, /\.\.\.\(d\.quests\|\|\{\}\)/);
 });
 
 test("Hollow King victory opens a persistent secret reserve in Hollowmoon Crypt", () => {
