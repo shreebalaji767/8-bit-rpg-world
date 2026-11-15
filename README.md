@@ -67,7 +67,7 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 
 ## Local development
 
-No build step or dependencies are required. Open `index.html` through a local static server for service-worker testing. GitHub Pages serves it directly.
+No build step or dependencies are required. Open `index.html` through a local static server for service-worker testing. GitHub Pages serves it directly. Run the companion combat regression checks with `node --test tests/companion-combat.test.js` (Node.js 18 or newer).
 
 ## Storage and privacy
 
