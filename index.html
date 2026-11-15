@@ -12,9 +12,15 @@
 </head>
 <body>
   <div class="app-shell">
+    <section class="landing-screen" id="landingPage" aria-labelledby="landingTitle">
+      <div class="landing-top"><a class="brand" href="#" aria-label="8-Bit RPG World home"><span class="brand-mark">✦</span><span>8-BIT <b>RPG WORLD</b></span></a><span class="landing-status">PIXEL ADVENTURE · OFFLINE READY</span></div>
+      <div class="landing-hero"><div class="landing-copy"><span class="eyebrow">YOUR NEXT GREAT ADVENTURE</span><h1 id="landingTitle">EIGHT KINGDOMS.<br><em>ONE LEGEND.</em></h1><p>Explore forgotten realms, master your calling, build your party and write your own legend in a living 8-bit world.</p><button class="primary-play" id="playButton"><span>▶</span> PLAY GAME</button><div class="landing-note"><span>✦ LOCAL SAVES</span><span>✦ NO ADS</span><span>✦ FREE TO PLAY</span></div></div><div class="pixel-showcase" aria-hidden="true"><div class="pixel-sun"></div><div class="pixel-mountain mountain-back"></div><div class="pixel-mountain mountain-front"></div><div class="pixel-castle"><i></i><i></i><i></i></div><div class="pixel-ground"></div><div class="pixel-hero">⚔</div><div class="pixel-spark spark-one">✦</div><div class="pixel-spark spark-two">✧</div></div></div>
+      <div class="landing-bottom"><div><strong>01</strong><span>EXPLORE</span><small>Eight distinct kingdoms</small></div><div><strong>02</strong><span>FIGHT</span><small>Real-time action combat</small></div><div><strong>03</strong><span>GROW</span><small>Build your hero and party</small></div><div><strong>04</strong><span>DISCOVER</span><small>Quests, secrets and legends</small></div></div>
+    </section>
+    <div class="game-screen hidden" id="gameScreen">
     <header class="topbar">
       <a class="brand" href="#" aria-label="8-Bit RPG World home"><span class="brand-mark">✦</span><span>8-BIT <b>RPG WORLD</b></span></a>
-      <div class="top-actions"><span class="save-indicator" id="saveStatus">● LOCAL SAVE</span><button class="icon-button" id="helpButton" aria-label="Controls and help">?</button><button class="icon-button" id="soundButton" aria-label="Toggle sound">♪</button></div>
+      <div class="top-actions"><span class="save-indicator" id="saveStatus">● LOCAL SAVE</span><button class="control-button pause-button" id="pauseButton">Ⅱ PAUSE</button><button class="control-button exit-button" id="exitButton">↩ EXIT</button><button class="icon-button" id="helpButton" aria-label="Controls and help">?</button><button class="icon-button" id="soundButton" aria-label="Toggle sound">♪</button></div>
     </header>
     <main class="game-layout">
       <section class="world-panel" aria-label="Game world">
@@ -42,6 +48,8 @@
       </aside>
     </main>
     <footer class="footer"><span>AN ADVENTURE ACROSS EIGHT KINGDOMS</span><span>NO ADS · OFFLINE READY · YOUR SAVE STAYS ON THIS DEVICE</span></footer>
+    <section class="pause-overlay hidden" id="pauseOverlay" aria-label="Game paused"><div class="pause-card"><span class="eyebrow">TAKE A BREATHER</span><h2>GAME PAUSED</h2><p>Your adventure is safe. Pick up where you left off whenever you're ready.</p><button class="primary-play" id="resumeButton">▶ RESUME GAME</button><button class="pause-exit" id="pauseExitButton">↩ EXIT TO TITLE</button></div></section>
+    </div>
   </div>
   <dialog id="modal"><div class="modal-head"><h2 id="modalTitle">Welcome, adventurer</h2><button id="closeModal" aria-label="Close">×</button></div><div id="modalContent"></div></dialog>
   <script src="game.js"></script>
