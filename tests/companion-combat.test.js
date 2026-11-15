@@ -49,3 +49,32 @@ test("companion combat update preserves version-2 save keys and companion record
   assert.match(game, /version:2/);
   assert.match(game, /companions:\{active:state\.companions\.active,records:/);
 });
+
+
+test("companion progression is persisted without changing save version 2", () => {
+  assert.match(game, /companionLevelNeed\(level\)/);
+  assert.match(game, /function companionXP\(amount\)/);
+  assert.match(game, /skillPoints\+\+/);
+  assert.match(game, /tactic:state\.companions\.tactic/);
+  assert.match(game, /skills:\{\.\.\.\(r\.skills\|\|\{\}\)\}/);
+  assert.match(game, /gear:\{\.\.\.\(r\.gear\|\|\{\}\)\}/);
+  assert.match(game, /version:2/);
+});
+test("party tactics and skill ranks affect companion combat support", () => {
+  assert.match(game, /tactic==="aggressive"\?3:0/);
+  assert.match(game, /tactic==="support"\?2:0/);
+  assert.match(game, /rank\*2/);
+  assert.match(game, /state\.companions\.tactic==="defensive"/);
+});
+test("party screen exposes loadouts, tactics and skill upgrades", () => {
+  assert.match(game, /function renderParty\(\)/);
+  assert.match(game, /data-party-gear/);
+  assert.match(game, /data-party-tactic/);
+  assert.match(game, /data-party-skill/);
+  assert.match(game, /data-tab="party"/);
+});
+test("companion save validation bounds progression fields", () => {
+  assert.match(game, /r\.level>20/);
+  assert.match(game, /r\.skillPoints>100/);
+  assert.match(game, /r\.xp>999999/);
+});
