@@ -389,3 +389,35 @@ test("Shadowmere secret vault flags are validated and migrated in existing local
   assert.match(game, /"shadowVaultOpen","shadowVaultClaimed"/);
   assert.match(game, /state\.quests\.shadowVaultOpen=true;state\.quests\.celestiaUnlocked=true/);
 });
+
+
+test("Greenvale expands into two connected dungeon floors without adding kingdoms", () => {
+  for (const area of ["rootdepths", "rootcore"]) assert.ok(game.includes(area));
+  assert.ok(game.includes('name:"Rootbound Depths"'));
+  assert.ok(game.includes('name:"Heart of the Roots"'));
+  assert.ok(game.includes('next="rootdepths"'));
+  assert.ok(game.includes('next="rootcore"'));
+  assert.match(game, /d\.region===0&&!\["village","meadow","woods","mine","dungeon","rootdepths","rootcore"\]\.includes\(d\.area\)/);
+  assert.match(game, /d\.region>7/);
+});
+test("Rootbound Depths pressure plate opens the bridge and the tablet reveals a one-time cache", () => {
+  assert.match(game, /kind:"depthSwitch"/);
+  assert.match(game, /state\.quests\.dungeonDepthsSwitch=true/);
+  assert.match(game, /state\.grid\[16\]\[x\]=0/);
+  assert.match(game, /kind:"depthInscription"/);
+  assert.match(game, /state\.quests\.dungeonCoreCacheOpen=true/);
+  assert.match(game, /state\.quests\.dungeonCoreCacheClaimed=true/);
+});
+test("The Thornbound Matriarch unlocks the Heartseal and the Heartroot Colossus", () => {
+  assert.match(game, /name:"Thornbound Matriarch",x:24,y:11,hp:235/);
+  assert.match(game, /state\.quests\.dungeonDepthsBoss=true/);
+  assert.match(game, /kind:"coreSwitch"/);
+  assert.match(game, /state\.quests\.dungeonCoreSeal=true/);
+  assert.match(game, /name:"Heartroot Colossus",x:24,y:10,hp:310/);
+  assert.match(game, /state\.quests\.dungeonCoreBoss=true/);
+});
+test("New dungeon progression and rewards remain backward-compatible with version-2 local saves", () => {
+  for (const flag of ["dungeonDepthsSwitch","dungeonCoreSeal","dungeonDepthsBoss","dungeonCoreBoss","dungeonCoreCacheOpen","dungeonCoreCacheClaimed"]) assert.ok(game.includes(flag));
+  assert.match(game, /version:2,savedAt/);
+  assert.match(game, /dungeonDepthsSwitch.*dungeonCoreSeal.*dungeonDepthsBoss/s);
+});
