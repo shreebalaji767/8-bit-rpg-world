@@ -297,7 +297,7 @@ test("Celestia Starheart quest requires three Star Sigils and opens the Warden g
   assert.ok(game.includes("state.quests.celestiaBoss=true"));
 });
 test("Celestia unlocks after Shadowmere and final kingdom saves migrate correctly", () => {
-  assert.ok(game.includes("state.quests.shadowmereBoss=true;state.quests.celestiaUnlocked=true;REGIONS[7].unlocked=true"));
+  assert.ok(game.includes("state.quests.shadowmereBoss=true;state.quests.shadowVaultOpen=true;state.quests.celestiaUnlocked=true;save();REGIONS[7].unlocked=true"));
   assert.ok(game.includes("d.region>7"));
   assert.ok(game.includes('d.region===7&&!["starfall","gardens","observatory","sanctum","zenith"].includes(d.area)'));
   assert.ok(game.includes("if(state.quests.shadowmereBoss)state.quests.celestiaUnlocked=true"));
