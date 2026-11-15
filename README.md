@@ -21,7 +21,7 @@ https://shreebalaji767.github.io/8-bit-rpg-world/
 - A seventh playable kingdom, Shadowmere, with five cursed areas: Gloam Village, Blackbriar Wood, Wraithfen Moor, Hollowmoon Crypt and Nightveil Citadel.
 - An eighth and final playable kingdom, Celestia, with five celestial areas: Starfall Citadel, Astral Gardens, Moonlit Observatory, Voidglass Sanctum and Zenith Throne.
 - Area-specific terrain palettes, enemy populations, exploration NPCs and boundary-based routes.
-- The expanded three-floor Greenvale dungeon: the Forgotten Root Dungeon, Rootbound Depths and the Heart of the Roots. The other seven regions now also contain optional themed challenge dungeons: Tomb of the Sun, Rimeheart Vault, Tempest Labyrinth, Crown of Cinders, Abyssal Archive, Veil of Whispers and the Sevenfold Orrery. Features include a Runic Switch, a pressure-plate bridge, a hidden cache opened by a carved tablet, thorn-trap lanes, the Rootbound Guardian, Thornbound Matriarch and Heartroot Colossus. Both new bosses use the shared telegraphed phase-two mechanics.
+- The expanded three-floor Greenvale dungeon: the Forgotten Root Dungeon, Rootbound Depths and the Heart of the Roots. The other seven regions now also contain optional themed challenge dungeons: Tomb of the Sun, Rimeheart Vault, Tempest Labyrinth, Crown of Cinders, Abyssal Archive, Veil of Whispers and the Sevenfold Orrery. Features include a Runic Switch, a pressure-plate bridge, a hidden cache opened by a carved tablet, thorn-trap lanes, the Rootbound Guardian, Thornbound Matriarch and Heartroot Colossus. Each of the seven optional regional dungeons has a three-rune sequence, region-specific hazard layout, sealed boss chamber, return sigil and one-time boss rewards. Both new bosses use the shared telegraphed phase-two mechanics.
 - Boss encounters across all kingdoms now enter phase two at half health: attacks gain damage and a telegraphed shockwave reaches two tiles, giving players a chance to retreat.
 - The Forgotten Reliquary is a one-time secret-room reward: 120 gold, 2 Copper Ore, 2 Blue Ether and 80 XP. Its discovery and claim are stored in the existing quest-save data.
 - Optional Celestia side story: the Starbound Keeper asks for 3 Star Sigils to reveal a hidden archive in Voidglass Sanctum. The Starheart Reliquary grants a one-time reward of 500 gold, 2 Star Sigils, 2 Aether Shards and 300 XP.
@@ -76,7 +76,7 @@ Game progress is stored in this browser localStorage. It does not sync between d
 The next development phases are expansions to the completed world, rather than additional locked kingdoms:
 
 1. Add more optional side quests, NPC stories and explorable settlements across existing kingdoms beyond the Starbound Keeper archive story.
-2. Expand the existing dungeon network with more secret chambers, puzzle variants and boss-specific phase-two patterns. The first three-floor Greenvale expansion is now in place.
+2. Expand the existing dungeon network with more secret chambers, puzzle variants and boss-specific phase-two patterns. The three-floor Greenvale expansion and seven themed regional challenge dungeons are now in place.
 3. Continue balancing class skills, equipment tiers, crafting recipes and loot variety.
 4. Add endgame challenges, replayable boss encounters, achievements and personal records.
 5. Expand automated regression coverage and perform hands-on browser testing across desktop and mobile devices.
